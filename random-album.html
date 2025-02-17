@@ -1,0 +1,4155 @@
+<html class="dark">
+	<head>
+		<title>Matt Viele</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+		<style>
+			.mainContainer {
+				display: flex;
+				flex-direction: column;
+				gap: 32px;
+				margin: 16px;
+				max-width: 480px;
+			}
+
+			.albumButton {
+				border-radius: 8px;
+				cursor: pointer;
+				padding: 8px 16px;
+			}
+
+			.albumName {
+				font-style: italic;
+			}
+
+			.albumInfo>p {
+				display: inline;
+			}
+		</style>
+		<script>
+			function generateRandom() {
+				var albums = [
+					{
+						"Album": "What's Going On",
+						"Artist": "Marvin Gaye",
+						"Year": "1971",
+						"Source": "Rolling Stone #1"
+					},
+					{
+						"Album": "Pet Sounds",
+						"Artist": "Beach Boys",
+						"Year": "1966",
+						"Source": "Rolling Stone #2"
+					},
+					{
+						"Album": "Blue",
+						"Artist": "Joni Mitchell",
+						"Year": "1971",
+						"Source": "Rolling Stone #3"
+					},
+					{
+						"Album": "Songs in the Key of Life",
+						"Artist": "Stevie Wonder",
+						"Year": "1976",
+						"Source": "Rolling Stone #4"
+					},
+					{
+						"Album": "Abbey Road",
+						"Artist": "Beatles",
+						"Year": "1969",
+						"Source": "Rolling Stone #5"
+					},
+					{
+						"Album": "Nevermind",
+						"Artist": "Nirvana",
+						"Year": "1991",
+						"Source": "Rolling Stone #6"
+					},
+					{
+						"Album": "Rumours",
+						"Artist": "Fleetwood Mac",
+						"Year": "1977",
+						"Source": "Rolling Stone #7"
+					},
+					{
+						"Album": "Purple Rain",
+						"Artist": "Prince and the Revolution",
+						"Year": "1984",
+						"Source": "Rolling Stone #8"
+					},
+					{
+						"Album": "Blood on the Tracks",
+						"Artist": "Bob Dylan",
+						"Year": "1975",
+						"Source": "Rolling Stone #9"
+					},
+					{
+						"Album": "The Miseducation of Lauryn Hill",
+						"Artist": "Lauryn Hill",
+						"Year": "1998",
+						"Source": "Rolling Stone #10"
+					},
+					{
+						"Album": "Revolver",
+						"Artist": "Beatles",
+						"Year": "1966",
+						"Source": "Rolling Stone #11"
+					},
+					{
+						"Album": "Thriller",
+						"Artist": "Michael Jackson",
+						"Year": "1982",
+						"Source": "Rolling Stone #12"
+					},
+					{
+						"Album": "I Never Loved a Man the Way I Love You",
+						"Artist": "Aretha Franklin",
+						"Year": "1967",
+						"Source": "Rolling Stone #13"
+					},
+					{
+						"Album": "Exile on Main St.",
+						"Artist": "Rolling Stones",
+						"Year": "1972",
+						"Source": "Rolling Stone #14"
+					},
+					{
+						"Album": "It Takes a Nation of Millions to Hold Us Back",
+						"Artist": "Public Enemy",
+						"Year": "1988",
+						"Source": "Rolling Stone #15"
+					},
+					{
+						"Album": "London Calling",
+						"Artist": "Clash",
+						"Year": "1979",
+						"Source": "Rolling Stone #16"
+					},
+					{
+						"Album": "My Beautiful Dark Twisted Fantasy",
+						"Artist": "Kanye West",
+						"Year": "2010",
+						"Source": "Rolling Stone #17"
+					},
+					{
+						"Album": "Highway 61 Revisited",
+						"Artist": "Bob Dylan",
+						"Year": "1965",
+						"Source": "Rolling Stone #18"
+					},
+					{
+						"Album": "To Pimp a Butterfly",
+						"Artist": "Kendrick Lamar",
+						"Year": "2015",
+						"Source": "Rolling Stone #19"
+					},
+					{
+						"Album": "Kid A",
+						"Artist": "Radiohead",
+						"Year": "2000",
+						"Source": "Rolling Stone #20"
+					},
+					{
+						"Album": "Born to Run",
+						"Artist": "Bruce Springsteen",
+						"Year": "1975",
+						"Source": "Rolling Stone #21"
+					},
+					{
+						"Album": "Ready to Die",
+						"Artist": "Notorious B.I.G.",
+						"Year": "1994",
+						"Source": "Rolling Stone #22"
+					},
+					{
+						"Album": "The Velvet Underground & Nico",
+						"Artist": "Velvet Underground & Nico",
+						"Year": "1967",
+						"Source": "Rolling Stone #23"
+					},
+					{
+						"Album": "Sgt. Pepper’s Lonely Hearts Club Band",
+						"Artist": "Beatles",
+						"Year": "1967",
+						"Source": "Rolling Stone #24"
+					},
+					{
+						"Album": "Tapestry",
+						"Artist": "Carole King",
+						"Year": "1971",
+						"Source": "Rolling Stone #25"
+					},
+					{
+						"Album": "Horses",
+						"Artist": "Patti Smith",
+						"Year": "1975",
+						"Source": "Rolling Stone #26"
+					},
+					{
+						"Album": "Enter the Wu‐Tang (36 Chambers)",
+						"Artist": "Wu‐Tang Clan",
+						"Year": "1993",
+						"Source": "Rolling Stone #27"
+					},
+					{
+						"Album": "Voodoo",
+						"Artist": "D’Angelo",
+						"Year": "2000",
+						"Source": "Rolling Stone #28"
+					},
+					{
+						"Album": "The Beatles [White Album]",
+						"Artist": "Beatles",
+						"Year": "1968",
+						"Source": "Rolling Stone #29"
+					},
+					{
+						"Album": "Are You Experienced?",
+						"Artist": "Jimi Hendrix Experience",
+						"Year": "1967",
+						"Source": "Rolling Stone #30"
+					},
+					{
+						"Album": "Kind of Blue",
+						"Artist": "Miles Davis",
+						"Year": "1959",
+						"Source": "Rolling Stone #31"
+					},
+					{
+						"Album": "Lemonade",
+						"Artist": "Beyoncé",
+						"Year": "2016",
+						"Source": "Rolling Stone #32"
+					},
+					{
+						"Album": "Back to Black",
+						"Artist": "Amy Winehouse",
+						"Year": "2006",
+						"Source": "Rolling Stone #33"
+					},
+					{
+						"Album": "Innervisions",
+						"Artist": "Stevie Wonder",
+						"Year": "1973",
+						"Source": "Rolling Stone #34"
+					},
+					{
+						"Album": "Rubber Soul",
+						"Artist": "Beatles",
+						"Year": "1965",
+						"Source": "Rolling Stone #35"
+					},
+					{
+						"Album": "Off the Wall",
+						"Artist": "Michael Jackson",
+						"Year": "1979",
+						"Source": "Rolling Stone #36"
+					},
+					{
+						"Album": "The Chronic",
+						"Artist": "Dr. Dre",
+						"Year": "1992",
+						"Source": "Rolling Stone #37"
+					},
+					{
+						"Album": "Blonde on Blonde",
+						"Artist": "Bob Dylan",
+						"Year": "1966",
+						"Source": "Rolling Stone #38"
+					},
+					{
+						"Album": "Remain in Light",
+						"Artist": "Talking Heads",
+						"Year": "1980",
+						"Source": "Rolling Stone #39"
+					},
+					{
+						"Album": "The Rise and Fall of Ziggy Stardust and the Spiders From Mars",
+						"Artist": "David Bowie",
+						"Year": "1972",
+						"Source": "Rolling Stone #40"
+					},
+					{
+						"Album": "Let It Bleed",
+						"Artist": "Rolling Stones",
+						"Year": "1969",
+						"Source": "Rolling Stone #41"
+					},
+					{
+						"Album": "OK Computer",
+						"Artist": "Radiohead",
+						"Year": "1997",
+						"Source": "Rolling Stone #42"
+					},
+					{
+						"Album": "The Low End Theory",
+						"Artist": "A Tribe Called Quest",
+						"Year": "1991",
+						"Source": "Rolling Stone #43"
+					},
+					{
+						"Album": "Illmatic",
+						"Artist": "Nas",
+						"Year": "1994",
+						"Source": "Rolling Stone #44"
+					},
+					{
+						"Album": "Sign “☮︎” the Times",
+						"Artist": "Prince",
+						"Year": "1987",
+						"Source": "Rolling Stone #45"
+					},
+					{
+						"Album": "Graceland",
+						"Artist": "Paul Simon",
+						"Year": "1986",
+						"Source": "Rolling Stone #46"
+					},
+					{
+						"Album": "Ramones",
+						"Artist": "Ramones",
+						"Year": "1976",
+						"Source": "Rolling Stone #47"
+					},
+					{
+						"Album": "Legend: The Best of Bob Marley and The Wailers",
+						"Artist": "Bob Marley & the Wailers",
+						"Year": "1984",
+						"Source": "Rolling Stone #48"
+					},
+					{
+						"Album": "Aquemini",
+						"Artist": "OutKast",
+						"Year": "1998",
+						"Source": "Rolling Stone #49"
+					},
+					{
+						"Album": "The Blueprint",
+						"Artist": "Jay‐Z",
+						"Year": "2001",
+						"Source": "Rolling Stone #50"
+					},
+					{
+						"Album": "The Great Twenty‐Eight",
+						"Artist": "Chuck Berry",
+						"Year": "1982",
+						"Source": "Rolling Stone #51"
+					},
+					{
+						"Album": "Station to Station",
+						"Artist": "David Bowie",
+						"Year": "1976",
+						"Source": "Rolling Stone #52"
+					},
+					{
+						"Album": "Electric Ladyland",
+						"Artist": "Jimi Hendrix Experience",
+						"Year": "1968",
+						"Source": "Rolling Stone #53"
+					},
+					{
+						"Album": "Star Time",
+						"Artist": "James Brown",
+						"Year": "1991",
+						"Source": "Rolling Stone #54"
+					},
+					{
+						"Album": "The Dark Side of the Moon",
+						"Artist": "Pink Floyd",
+						"Year": "1973",
+						"Source": "Rolling Stone #55"
+					},
+					{
+						"Album": "Exile in Guyville",
+						"Artist": "Liz Phair",
+						"Year": "1993",
+						"Source": "Rolling Stone #56"
+					},
+					{
+						"Album": "The Band [Brown Album]",
+						"Artist": "Band",
+						"Year": "1969",
+						"Source": "Rolling Stone #57"
+					},
+					{
+						"Album": "Led Zeppelin IV [untitled]",
+						"Artist": "Led Zeppelin",
+						"Year": "1971",
+						"Source": "Rolling Stone #58"
+					},
+					{
+						"Album": "Talking Book",
+						"Artist": "Stevie Wonder",
+						"Year": "1972",
+						"Source": "Rolling Stone #59"
+					},
+					{
+						"Album": "Astral Weeks",
+						"Artist": "Van Morrison",
+						"Year": "1968",
+						"Source": "Rolling Stone #60"
+					},
+					{
+						"Album": "Paid in Full",
+						"Artist": "Eric B & Rakim",
+						"Year": "1987",
+						"Source": "Rolling Stone #61"
+					},
+					{
+						"Album": "Appetite For Destruction",
+						"Artist": "Guns N' Roses",
+						"Year": "1987",
+						"Source": "Rolling Stone #62"
+					},
+					{
+						"Album": "Aja",
+						"Artist": "Steely Dan",
+						"Year": "1977",
+						"Source": "Rolling Stone #63"
+					},
+					{
+						"Album": "Stankonia",
+						"Artist": "OutKast",
+						"Year": "2000",
+						"Source": "Rolling Stone #64"
+					},
+					{
+						"Album": "Live at the Apollo [aka Live at the Apollo Vol. 1 or The James Brown Show]",
+						"Artist": "James Brown",
+						"Year": "1963",
+						"Source": "Rolling Stone #65"
+					},
+					{
+						"Album": "A Love Supreme",
+						"Artist": "John Coltrane",
+						"Year": "1965",
+						"Source": "Rolling Stone #66"
+					},
+					{
+						"Album": "Reasonable Doubt",
+						"Artist": "Jay-Z",
+						"Year": "1996",
+						"Source": "Rolling Stone #67"
+					},
+					{
+						"Album": "Hounds of Love",
+						"Artist": "Kate Bush",
+						"Year": "1985",
+						"Source": "Rolling Stone #68"
+					},
+					{
+						"Album": "Jagged Little Pill",
+						"Artist": "Alanis Morissette",
+						"Year": "1995",
+						"Source": "Rolling Stone #69"
+					},
+					{
+						"Album": "Straight Outta Compton",
+						"Artist": "N.W.A.",
+						"Year": "1988",
+						"Source": "Rolling Stone #70"
+					},
+					{
+						"Album": "Exodus",
+						"Artist": "Bob Marley & the Wailers",
+						"Year": "1977",
+						"Source": "Rolling Stone #71"
+					},
+					{
+						"Album": "Harvest",
+						"Artist": "Neil Young",
+						"Year": "1972",
+						"Source": "Rolling Stone #72"
+					},
+					{
+						"Album": "Loveless",
+						"Artist": "My Bloody Valentine",
+						"Year": "1990",
+						"Source": "Rolling Stone #73"
+					},
+					{
+						"Album": "The College Dropout",
+						"Artist": "Kanye West",
+						"Year": "2003",
+						"Source": "Rolling Stone #74"
+					},
+					{
+						"Album": "Lady Soul",
+						"Artist": "Aretha Franklin",
+						"Year": "1968",
+						"Source": "Rolling Stone #75"
+					},
+					{
+						"Album": "Super Fly [movie soundtrack]",
+						"Artist": "Curtis Mayfield",
+						"Year": "1972",
+						"Source": "Rolling Stone #76"
+					},
+					{
+						"Album": "Who's Next?",
+						"Artist": "Who",
+						"Year": "1971",
+						"Source": "Rolling Stone #77"
+					},
+					{
+						"Album": "The Sun Collection [aka The Sun Sessions]",
+						"Artist": "Elvis Presley",
+						"Year": "1975",
+						"Source": "Rolling Stone #78"
+					},
+					{
+						"Album": "Blond",
+						"Artist": "Frank Ocean",
+						"Year": "2016",
+						"Source": "Rolling Stone #79"
+					},
+					{
+						"Album": "Never Mind the Bollocks Here’s the Sex Pistols",
+						"Artist": "Sex Pistols",
+						"Year": "1977",
+						"Source": "Rolling Stone #80"
+					},
+					{
+						"Album": "Beyoncé",
+						"Artist": "Beyoncé",
+						"Year": "2013",
+						"Source": "Rolling Stone #81"
+					},
+					{
+						"Album": "There's a Riot Goin' On",
+						"Artist": "Sly & the Family Stone",
+						"Year": "1971",
+						"Source": "Rolling Stone #82"
+					},
+					{
+						"Album": "Dusty in Memphis",
+						"Artist": "Dusty Springfield",
+						"Year": "1969",
+						"Source": "Rolling Stone #83"
+					},
+					{
+						"Album": "Back in Black",
+						"Artist": "AC/DC",
+						"Year": "1980",
+						"Source": "Rolling Stone #84"
+					},
+					{
+						"Album": "John Lennon/Plastic Ono Band",
+						"Artist": "John Lennon",
+						"Year": "1970",
+						"Source": "Rolling Stone #85"
+					},
+					{
+						"Album": "The Doors",
+						"Artist": "Doors",
+						"Year": "1967",
+						"Source": "Rolling Stone #86"
+					},
+					{
+						"Album": "Bitches Brew",
+						"Artist": "Miles Davis",
+						"Year": "1970",
+						"Source": "Rolling Stone #87"
+					},
+					{
+						"Album": "Hunky Dory",
+						"Artist": "David Bowie",
+						"Year": "1971",
+						"Source": "Rolling Stone #88"
+					},
+					{
+						"Album": "Baduizm",
+						"Artist": "Erykah Badu",
+						"Year": "1997",
+						"Source": "Rolling Stone #89"
+					},
+					{
+						"Album": "After the Gold Rush",
+						"Artist": "Neil Young",
+						"Year": "1970",
+						"Source": "Rolling Stone #90"
+					},
+					{
+						"Album": "Darkness on the Edge of Town",
+						"Artist": "Bruce Springsteen",
+						"Year": "1978",
+						"Source": "Rolling Stone #91"
+					},
+					{
+						"Album": "Axis: Bold as Love",
+						"Artist": "Jimi Hendrix Experience",
+						"Year": "1967",
+						"Source": "Rolling Stone #92"
+					},
+					{
+						"Album": "Supa Dupa Fly",
+						"Artist": "Missy Elliott",
+						"Year": "1997",
+						"Source": "Rolling Stone #93"
+					},
+					{
+						"Album": "Fun House",
+						"Artist": "Stooges",
+						"Year": "1970",
+						"Source": "Rolling Stone #94"
+					},
+					{
+						"Album": "Take Care",
+						"Artist": "Drake",
+						"Year": "2011",
+						"Source": "Rolling Stone #95"
+					},
+					{
+						"Album": "Automatic for the People",
+						"Artist": "R.E.M.",
+						"Year": "1992",
+						"Source": "Rolling Stone #96"
+					},
+					{
+						"Album": "Master of Puppets",
+						"Artist": "Metallica",
+						"Year": "1986",
+						"Source": "Rolling Stone #97"
+					},
+					{
+						"Album": "Car Wheels on a Gravel Road",
+						"Artist": "Lucinda Williams",
+						"Year": "1998",
+						"Source": "Rolling Stone #98"
+					},
+					{
+						"Album": "Red",
+						"Artist": "Taylor Swift",
+						"Year": "2012",
+						"Source": "Rolling Stone #99"
+					},
+					{
+						"Album": "Music From Big Pink",
+						"Artist": "Band",
+						"Year": "1968",
+						"Source": "Rolling Stone #100"
+					},
+					{
+						"Album": "Led Zeppelin",
+						"Artist": "Led Zeppelin",
+						"Year": "1969",
+						"Source": "Rolling Stone #101"
+					},
+					{
+						"Album": "The Clash",
+						"Artist": "Clash",
+						"Year": "1977",
+						"Source": "Rolling Stone #102"
+					},
+					{
+						"Album": "3 Feet High and Rising",
+						"Artist": "De La Soul",
+						"Year": "1989",
+						"Source": "Rolling Stone #103"
+					},
+					{
+						"Album": "Sticky Fingers",
+						"Artist": "Rolling Stones",
+						"Year": "1971",
+						"Source": "Rolling Stone #104"
+					},
+					{
+						"Album": "Fillmore Concerts [or At Fillmore East - expanded edition of At Fillmore East is virtually identical to Fillmore Concerts]",
+						"Artist": "Allman Brothers Band",
+						"Year": "1971",
+						"Source": "Rolling Stone #105"
+					},
+					{
+						"Album": "Live Through This",
+						"Artist": "Hole",
+						"Year": "1994",
+						"Source": "Rolling Stone #106"
+					},
+					{
+						"Album": "Marquee Moon",
+						"Artist": "Television",
+						"Year": "1977",
+						"Source": "Rolling Stone #107"
+					},
+					{
+						"Album": "When the Pawn Hits...",
+						"Artist": "Fiona Apple",
+						"Year": "1999",
+						"Source": "Rolling Stone #108"
+					},
+					{
+						"Album": "Transformer",
+						"Artist": "Lou Reed",
+						"Year": "1972",
+						"Source": "Rolling Stone #109"
+					},
+					{
+						"Album": "Court and Spark",
+						"Artist": "Joni Mitchell",
+						"Year": "1974",
+						"Source": "Rolling Stone #110"
+					},
+					{
+						"Album": "Control",
+						"Artist": "Janet Jackson",
+						"Year": "1986",
+						"Source": "Rolling Stone #111"
+					},
+					{
+						"Album": "Goodbye Yellow Brick Road",
+						"Artist": "Elton John",
+						"Year": "1973",
+						"Source": "Rolling Stone #112"
+					},
+					{
+						"Album": "The Queen Is Dead",
+						"Artist": "Smiths",
+						"Year": "1986",
+						"Source": "Rolling Stone #113"
+					},
+					{
+						"Album": "Is This It",
+						"Artist": "Strokes",
+						"Year": "2001",
+						"Source": "Rolling Stone #114"
+					},
+					{
+						"Album": "good kid, m.A.A.d city",
+						"Artist": "Kendrick Lamar",
+						"Year": "2012",
+						"Source": "Rolling Stone #115"
+					},
+					{
+						"Album": "Disintegration",
+						"Artist": "Cure",
+						"Year": "1989",
+						"Source": "Rolling Stone #116"
+					},
+					{
+						"Album": "Late Registration",
+						"Artist": "Kanye West",
+						"Year": "2005",
+						"Source": "Rolling Stone #117"
+					},
+					{
+						"Album": "Hotel California",
+						"Artist": "Eagles",
+						"Year": "1976",
+						"Source": "Rolling Stone #118"
+					},
+					{
+						"Album": "Stand!",
+						"Artist": "Sly & the Family Stone",
+						"Year": "1969",
+						"Source": "Rolling Stone #119"
+					},
+					{
+						"Album": "Moondance",
+						"Artist": "Van Morrison",
+						"Year": "1970",
+						"Source": "Rolling Stone #120"
+					},
+					{
+						"Album": "This Year’s Model",
+						"Artist": "Elvis Costello & The Attractions",
+						"Year": "1978",
+						"Source": "Rolling Stone #121"
+					},
+					{
+						"Album": "The Downward Spiral",
+						"Artist": "Nine Inch Nails",
+						"Year": "1994",
+						"Source": "Rolling Stone #122"
+					},
+					{
+						"Album": "Led Zeppelin II",
+						"Artist": "Led Zeppelin",
+						"Year": "1969",
+						"Source": "Rolling Stone #123"
+					},
+					{
+						"Album": "Achtung Baby",
+						"Artist": "U2",
+						"Year": "1991",
+						"Source": "Rolling Stone #124"
+					},
+					{
+						"Album": "Paul’s Boutique",
+						"Artist": "Beastie Boys",
+						"Year": "1989",
+						"Source": "Rolling Stone #125"
+					},
+					{
+						"Album": "My Life",
+						"Artist": "Mary J. Blige",
+						"Year": "1994",
+						"Source": "Rolling Stone #126"
+					},
+					{
+						"Album": "Modern Sounds in Country and Western Music",
+						"Artist": "Ray Charles",
+						"Year": "1962",
+						"Source": "Rolling Stone #127"
+					},
+					{
+						"Album": "A Night at the Opera",
+						"Artist": "Queen",
+						"Year": "1975",
+						"Source": "Rolling Stone #128"
+					},
+					{
+						"Album": "The Wall",
+						"Artist": "Pink Floyd",
+						"Year": "1979",
+						"Source": "Rolling Stone #129"
+					},
+					{
+						"Album": "1999",
+						"Artist": "Prince",
+						"Year": "1982",
+						"Source": "Rolling Stone #130"
+					},
+					{
+						"Album": "Dummy",
+						"Artist": "Portishead",
+						"Year": "1994",
+						"Source": "Rolling Stone #131"
+					},
+					{
+						"Album": "40 Greatest Hits",
+						"Artist": "Hank Williams",
+						"Year": "1978",
+						"Source": "Rolling Stone #132"
+					},
+					{
+						"Album": "Hejira",
+						"Artist": "Joni Mitchell",
+						"Year": "1976",
+						"Source": "Rolling Stone #133"
+					},
+					{
+						"Album": "The Score",
+						"Artist": "Fugees",
+						"Year": "1996",
+						"Source": "Rolling Stone #134"
+					},
+					{
+						"Album": "The Joshua Tree",
+						"Artist": "U2",
+						"Year": "1987",
+						"Source": "Rolling Stone #135"
+					},
+					{
+						"Album": "Maggot Brain",
+						"Artist": "Funkadelic",
+						"Year": "1971",
+						"Source": "Rolling Stone #136"
+					},
+					{
+						"Album": "21",
+						"Artist": "Adele",
+						"Year": "2011",
+						"Source": "Rolling Stone #137"
+					},
+					{
+						"Album": "The Immaculate Collection",
+						"Artist": "Madonna",
+						"Year": "1990",
+						"Source": "Rolling Stone #138"
+					},
+					{
+						"Album": "Paranoid",
+						"Artist": "Black Sabbath",
+						"Year": "1970",
+						"Source": "Rolling Stone #139"
+					},
+					{
+						"Album": "Catch a Fire",
+						"Artist": "Bob Marley & the Wailers",
+						"Year": "1973",
+						"Source": "Rolling Stone #140"
+					},
+					{
+						"Album": "Doolittle",
+						"Artist": "Pixies",
+						"Year": "1989",
+						"Source": "Rolling Stone #141"
+					},
+					{
+						"Album": "Born in the U.S.A.",
+						"Artist": "Bruce Springsteen",
+						"Year": "1984",
+						"Source": "Rolling Stone #142"
+					},
+					{
+						"Album": "The Velvet Underground",
+						"Artist": "Velvet Underground",
+						"Year": "1969",
+						"Source": "Rolling Stone #143"
+					},
+					{
+						"Album": "Physical Graffiti",
+						"Artist": "Led Zeppelin",
+						"Year": "1975",
+						"Source": "Rolling Stone #144"
+					},
+					{
+						"Album": "The Marshall Mathers LP",
+						"Artist": "Eminem",
+						"Year": "2000",
+						"Source": "Rolling Stone #145"
+					},
+					{
+						"Album": "Parallel Lines",
+						"Artist": "Blondie",
+						"Year": "1978",
+						"Source": "Rolling Stone #146"
+					},
+					{
+						"Album": "Grace",
+						"Artist": "Jeff Buckley",
+						"Year": "1994",
+						"Source": "Rolling Stone #147"
+					},
+					{
+						"Album": "Channel Orange",
+						"Artist": "Frank Ocean",
+						"Year": "2012",
+						"Source": "Rolling Stone #148"
+					},
+					{
+						"Album": "John Prine",
+						"Artist": "John Prine",
+						"Year": "1971",
+						"Source": "Rolling Stone #149"
+					},
+					{
+						"Album": "Nebraska",
+						"Artist": "Bruce Springsteen",
+						"Year": "1982",
+						"Source": "Rolling Stone #150"
+					},
+					{
+						"Album": "Faith",
+						"Artist": "George Michael",
+						"Year": "1987",
+						"Source": "Rolling Stone #151"
+					},
+					{
+						"Album": "Pretenders",
+						"Artist": "Pretenders",
+						"Year": "1980",
+						"Source": "Rolling Stone #152"
+					},
+					{
+						"Album": "Rid of Me",
+						"Artist": "PJ Harvey",
+						"Year": "1993",
+						"Source": "Rolling Stone #153"
+					},
+					{
+						"Album": "Amazing Grace",
+						"Artist": "Aretha Franklin",
+						"Year": "1972",
+						"Source": "Rolling Stone #154"
+					},
+					{
+						"Album": "The Black Album",
+						"Artist": "Jay‐Z",
+						"Year": "2003",
+						"Source": "Rolling Stone #155"
+					},
+					{
+						"Album": "Let It Be",
+						"Artist": "Replacements",
+						"Year": "1984",
+						"Source": "Rolling Stone #156"
+					},
+					{
+						"Album": "(What’s the Story) Morning Glory?",
+						"Artist": "Oasis",
+						"Year": "1995",
+						"Source": "Rolling Stone #157"
+					},
+					{
+						"Album": "Mama’s Gun",
+						"Artist": "Erykah Badu",
+						"Year": "2000",
+						"Source": "Rolling Stone #158"
+					},
+					{
+						"Album": "Synchronicity",
+						"Artist": "Police",
+						"Year": "1983",
+						"Source": "Rolling Stone #159"
+					},
+					{
+						"Album": "Ten",
+						"Artist": "Pearl Jam",
+						"Year": "1992",
+						"Source": "Rolling Stone #160"
+					},
+					{
+						"Album": "Crosby, Stills & Nash",
+						"Artist": "Crosby, Stills & Nash",
+						"Year": "1969",
+						"Source": "Rolling Stone #161"
+					},
+					{
+						"Album": "Different Class",
+						"Artist": "Pulp",
+						"Year": "1995",
+						"Source": "Rolling Stone #162"
+					},
+					{
+						"Album": "Saturday Night Fever [movie soundtrack]",
+						"Artist": "Various Artists",
+						"Year": "1977",
+						"Source": "Rolling Stone #163"
+					},
+					{
+						"Album": "At Folsom Prison",
+						"Artist": "Johnny Cash",
+						"Year": "1968",
+						"Source": "Rolling Stone #164"
+					},
+					{
+						"Album": "Murmur",
+						"Artist": "R.E.M.",
+						"Year": "1983",
+						"Source": "Rolling Stone #165"
+					},
+					{
+						"Album": "20 Golden Greats",
+						"Artist": "Buddy Holly",
+						"Year": "1977",
+						"Source": "Rolling Stone #166"
+					},
+					{
+						"Album": "Violator",
+						"Artist": "Depeche Mode",
+						"Year": "1990",
+						"Source": "Rolling Stone #167"
+					},
+					{
+						"Album": "Can't Buy a Thrill",
+						"Artist": "Steely Dan",
+						"Year": "1973",
+						"Source": "Rolling Stone #168"
+					},
+					{
+						"Album": "The Stranger",
+						"Artist": "Billy Joel",
+						"Year": "1977",
+						"Source": "Rolling Stone #169"
+					},
+					{
+						"Album": "Disraeli Gears",
+						"Artist": "Cream",
+						"Year": "1967",
+						"Source": "Rolling Stone #170"
+					},
+					{
+						"Album": "Daydream Nation",
+						"Artist": "Sonic Youth",
+						"Year": "1988",
+						"Source": "Rolling Stone #171"
+					},
+					{
+						"Album": "Bridge Over Troubled Water",
+						"Artist": "Simon and Garfunkel",
+						"Year": "1970",
+						"Source": "Rolling Stone #172"
+					},
+					{
+						"Album": "In Utero",
+						"Artist": "Nirvana",
+						"Year": "1993",
+						"Source": "Rolling Stone #173"
+					},
+					{
+						"Album": "The Harder They Come [movie soundtrack]",
+						"Artist": "Various Artists",
+						"Year": "1972",
+						"Source": "Rolling Stone #174"
+					},
+					{
+						"Album": "Damn.",
+						"Artist": "Kendrick Lamar",
+						"Year": "2017",
+						"Source": "Rolling Stone #175"
+					},
+					{
+						"Album": "Fear of a Black Planet",
+						"Artist": "Public Enemy",
+						"Year": "1990",
+						"Source": "Rolling Stone #176"
+					},
+					{
+						"Album": "Every Picture Tells a Story",
+						"Artist": "Rod Stewart",
+						"Year": "1971",
+						"Source": "Rolling Stone #177"
+					},
+					{
+						"Album": "Otis Blue / Otis Redding Sings Soul",
+						"Artist": "Otis Redding",
+						"Year": "1966",
+						"Source": "Rolling Stone #178"
+					},
+					{
+						"Album": "Life After Death",
+						"Artist": "Notorious B.I.G.",
+						"Year": "1997",
+						"Source": "Rolling Stone #179"
+					},
+					{
+						"Album": "Forever Changes",
+						"Artist": "Love",
+						"Year": "1967",
+						"Source": "Rolling Stone #180"
+					},
+					{
+						"Album": "Bringing It All Back Home",
+						"Artist": "Bob Dylan",
+						"Year": "1965",
+						"Source": "Rolling Stone #181"
+					},
+					{
+						"Album": "Sweet Baby James",
+						"Artist": "James Taylor",
+						"Year": "1970",
+						"Source": "Rolling Stone #182"
+					},
+					{
+						"Album": "Brown Sugar",
+						"Artist": "D’Angelo",
+						"Year": "1995",
+						"Source": "Rolling Stone #183"
+					},
+					{
+						"Album": "She's So Unusual",
+						"Artist": "Cyndi Lauper",
+						"Year": "1983",
+						"Source": "Rolling Stone #184"
+					},
+					{
+						"Album": "Beggars Banquet",
+						"Artist": "Rolling Stones",
+						"Year": "1968",
+						"Source": "Rolling Stone #185"
+					},
+					{
+						"Album": "Blood Sugar Sex Magik",
+						"Artist": "Red Hot Chili Peppers",
+						"Year": "1991",
+						"Source": "Rolling Stone #186"
+					},
+					{
+						"Album": "AmeriKKKa’s Most Wanted",
+						"Artist": "Ice Cube",
+						"Year": "1990",
+						"Source": "Rolling Stone #187"
+					},
+					{
+						"Album": "Electric Warrior",
+						"Artist": "T. Rex",
+						"Year": "1971",
+						"Source": "Rolling Stone #188"
+					},
+					{
+						"Album": "Dig Me Out",
+						"Artist": "Sleater‐Kinney",
+						"Year": "1997",
+						"Source": "Rolling Stone #189"
+					},
+					{
+						"Album": "Tommy",
+						"Artist": "Who",
+						"Year": "1969",
+						"Source": "Rolling Stone #190"
+					},
+					{
+						"Album": "At Last!",
+						"Artist": "Etta James",
+						"Year": "1960",
+						"Source": "Rolling Stone #191"
+					},
+					{
+						"Album": "Licensed to Ill",
+						"Artist": "Beastie Boys",
+						"Year": "1986",
+						"Source": "Rolling Stone #192"
+					},
+					{
+						"Album": "Willy and the Poor Boys",
+						"Artist": "Creedence Clearwater Revival",
+						"Year": "1969",
+						"Source": "Rolling Stone #193"
+					},
+					{
+						"Album": "Bad",
+						"Artist": "Michael Jackson",
+						"Year": "1987",
+						"Source": "Rolling Stone #194"
+					},
+					{
+						"Album": "Songs of Leonard Cohen",
+						"Artist": "Leonard Cohen",
+						"Year": "1967",
+						"Source": "Rolling Stone #195"
+					},
+					{
+						"Album": "Body Talk",
+						"Artist": "Robyn",
+						"Year": "2010",
+						"Source": "Rolling Stone #196"
+					},
+					{
+						"Album": "Meet The Beatles!",
+						"Artist": "Beatles",
+						"Year": "1964",
+						"Source": "Rolling Stone #197"
+					},
+					{
+						"Album": "The B‐52’s",
+						"Artist": "B‐52’s",
+						"Year": "1979",
+						"Source": "Rolling Stone #198"
+					},
+					{
+						"Album": "Slanted and Enchanted",
+						"Artist": "Pavement",
+						"Year": "1991",
+						"Source": "Rolling Stone #199"
+					},
+					{
+						"Album": "Diamond Life",
+						"Artist": "Sade",
+						"Year": "1984",
+						"Source": "Rolling Stone #200"
+					},
+					{
+						"Album": "Midnight Marauders",
+						"Artist": "A Tribe Called Quest",
+						"Year": "1993",
+						"Source": "Rolling Stone #201"
+					},
+					{
+						"Album": "Homogenic",
+						"Artist": "Björk",
+						"Year": "1997",
+						"Source": "Rolling Stone #202"
+					},
+					{
+						"Album": "Pink Moon",
+						"Artist": "Nick Drake",
+						"Year": "1972",
+						"Source": "Rolling Stone #203"
+					},
+					{
+						"Album": "Graduation",
+						"Artist": "Kanye West",
+						"Year": "2007",
+						"Source": "Rolling Stone #204"
+					},
+					{
+						"Album": "Tea for the Tillerman",
+						"Artist": "Cat Stevens",
+						"Year": "1970",
+						"Source": "Rolling Stone #205"
+					},
+					{
+						"Album": "Low",
+						"Artist": "David Bowie",
+						"Year": "1977",
+						"Source": "Rolling Stone #206"
+					},
+					{
+						"Album": "Eagles",
+						"Artist": "Eagles",
+						"Year": "1972",
+						"Source": "Rolling Stone #207"
+					},
+					{
+						"Album": "Tha Carter III",
+						"Artist": "Lil Wayne",
+						"Year": "2008",
+						"Source": "Rolling Stone #208"
+					},
+					{
+						"Album": "Raising Hell",
+						"Artist": "Run-DMC",
+						"Year": "1986",
+						"Source": "Rolling Stone #209"
+					},
+					{
+						"Album": "The Birth Of Soul - The Complete Atlantic Rhythm & Blues Recordings 1952-1959",
+						"Artist": "Ray Charles",
+						"Year": "1991",
+						"Source": "Rolling Stone #210"
+					},
+					{
+						"Album": "Unknown Pleasures",
+						"Artist": "Joy Division",
+						"Year": "1979",
+						"Source": "Rolling Stone #211"
+					},
+					{
+						"Album": "Wild Is the Wind",
+						"Artist": "Nina Simone",
+						"Year": "1966",
+						"Source": "Rolling Stone #212"
+					},
+					{
+						"Album": "The Idler Wheel Is Wiser Than the Driver of the Screw and Whipping Cords Will Serve You More Than Ropes Will Ever Do",
+						"Artist": "Fiona Apple",
+						"Year": "2012",
+						"Source": "Rolling Stone #213"
+					},
+					{
+						"Album": "Wildflowers",
+						"Artist": "Tom Petty",
+						"Year": "1994",
+						"Source": "Rolling Stone #214"
+					},
+					{
+						"Album": "American Beauty",
+						"Artist": "Grateful Dead",
+						"Year": "1970",
+						"Source": "Rolling Stone #215"
+					},
+					{
+						"Album": "Either/Or",
+						"Artist": "Elliott Smith",
+						"Year": "1997",
+						"Source": "Rolling Stone #216"
+					},
+					{
+						"Album": "Definitely Maybe",
+						"Artist": "Oasis",
+						"Year": "1994",
+						"Source": "Rolling Stone #217"
+					},
+					{
+						"Album": "CrazySexyCool",
+						"Artist": "TLC",
+						"Year": "1994",
+						"Source": "Rolling Stone #218"
+					},
+					{
+						"Album": "Only Built 4 Cuban Linx…",
+						"Artist": "Raekwon",
+						"Year": "1995",
+						"Source": "Rolling Stone #219"
+					},
+					{
+						"Album": "Déjà vu",
+						"Artist": "Crosby, Stills, Nash & Young",
+						"Year": "1970",
+						"Source": "Rolling Stone #220"
+					},
+					{
+						"Album": "Rage Against the Machine",
+						"Artist": "Rage Against the Machine",
+						"Year": "1992",
+						"Source": "Rolling Stone #221"
+					},
+					{
+						"Album": "Ray of Light",
+						"Artist": "Madonna",
+						"Year": "1998",
+						"Source": "Rolling Stone #222"
+					},
+					{
+						"Album": "Imagine",
+						"Artist": "John Lennon",
+						"Year": "1971",
+						"Source": "Rolling Stone #223"
+					},
+					{
+						"Album": "Fly",
+						"Artist": "Dixie Chicks",
+						"Year": "1999",
+						"Source": "Rolling Stone #224"
+					},
+					{
+						"Album": "Yankee Hotel Foxtrot",
+						"Artist": "Wilco",
+						"Year": "2002",
+						"Source": "Rolling Stone #225"
+					},
+					{
+						"Album": "Layla and Other Assorted Love Songs",
+						"Artist": "Derek & the Dominos",
+						"Year": "1970",
+						"Source": "Rolling Stone #226"
+					},
+					{
+						"Album": "Here's Little Richard",
+						"Artist": "Little Richard",
+						"Year": "1957",
+						"Source": "Rolling Stone #227"
+					},
+					{
+						"Album": "De La Soul Is Dead",
+						"Artist": "De La Soul",
+						"Year": "1991",
+						"Source": "Rolling Stone #228"
+					},
+					{
+						"Album": "The Ultimate Collection",
+						"Artist": "Patsy Cline",
+						"Year": "2000",
+						"Source": "Rolling Stone #229"
+					},
+					{
+						"Album": "Anti",
+						"Artist": "Rihanna",
+						"Year": "2016",
+						"Source": "Rolling Stone #230"
+					},
+					{
+						"Album": "Damn the Torpedoes",
+						"Artist": "Tom Petty and the Heartbreakers",
+						"Year": "1979",
+						"Source": "Rolling Stone #231"
+					},
+					{
+						"Album": "Giant Steps",
+						"Artist": "John Coltrane",
+						"Year": "1960",
+						"Source": "Rolling Stone #232"
+					},
+					{
+						"Album": "Little Earthquakes",
+						"Artist": "Tori Amos",
+						"Year": "1992",
+						"Source": "Rolling Stone #233"
+					},
+					{
+						"Album": "Master of Reality",
+						"Artist": "Black Sabbath",
+						"Year": "1971",
+						"Source": "Rolling Stone #234"
+					},
+					{
+						"Album": "Metallica (“The Black Album”)",
+						"Artist": "Metallica",
+						"Year": "1991",
+						"Source": "Rolling Stone #235"
+					},
+					{
+						"Album": "Discovery",
+						"Artist": "Daft Punk",
+						"Year": "2001",
+						"Source": "Rolling Stone #236"
+					},
+					{
+						"Album": "Red Headed Stranger",
+						"Artist": "Willie Nelson",
+						"Year": "1975",
+						"Source": "Rolling Stone #237"
+					},
+					{
+						"Album": "Trans Europa Express",
+						"Artist": "Kraftwerk",
+						"Year": "1977",
+						"Source": "Rolling Stone #238"
+					},
+					{
+						"Album": "Criminal Minded",
+						"Artist": "Boogie Down Productions",
+						"Year": "1987",
+						"Source": "Rolling Stone #239"
+					},
+					{
+						"Album": "Live at the Harlem Square Club, 1963",
+						"Artist": "Sam Cooke",
+						"Year": "1985",
+						"Source": "Rolling Stone #240"
+					},
+					{
+						"Album": "Blue Lines",
+						"Artist": "Massive Attack",
+						"Year": "1991",
+						"Source": "Rolling Stone #241"
+					},
+					{
+						"Album": "Loaded",
+						"Artist": "Velvet Underground",
+						"Year": "1970",
+						"Source": "Rolling Stone #242"
+					},
+					{
+						"Album": "Odessey and Oracle",
+						"Artist": "Zombies",
+						"Year": "1968",
+						"Source": "Rolling Stone #243"
+					},
+					{
+						"Album": "808s & Heartbreak",
+						"Artist": "Kanye West",
+						"Year": "2008",
+						"Source": "Rolling Stone #244"
+					},
+					{
+						"Album": "Heaven or Las Vegas",
+						"Artist": "Cocteau Twins",
+						"Year": "1990",
+						"Source": "Rolling Stone #245"
+					},
+					{
+						"Album": "Mama Said Knock You Out",
+						"Artist": "L.L. Cool J",
+						"Year": "1990",
+						"Source": "Rolling Stone #246"
+					},
+					{
+						"Album": "Love Deluxe",
+						"Artist": "Sade",
+						"Year": "1992",
+						"Source": "Rolling Stone #247"
+					},
+					{
+						"Album": "American Idiot",
+						"Artist": "Green Day",
+						"Year": "2004",
+						"Source": "Rolling Stone #248"
+					},
+					{
+						"Album": "Whitney Houston",
+						"Artist": "Whitney Houston",
+						"Year": "1985",
+						"Source": "Rolling Stone #249"
+					},
+					{
+						"Album": "Singles Going Steady",
+						"Artist": "Buzzcocks",
+						"Year": "1981",
+						"Source": "Rolling Stone #250"
+					},
+					{
+						"Album": "Honky Château",
+						"Artist": "Elton John",
+						"Year": "1972",
+						"Source": "Rolling Stone #251"
+					},
+					{
+						"Album": "Q: Are We Not Men? A: We Are Devo!",
+						"Artist": "Devo",
+						"Year": "1978",
+						"Source": "Rolling Stone #252"
+					},
+					{
+						"Album": "The Piper at the Gates of Dawn",
+						"Artist": "Pink Floyd",
+						"Year": "1967",
+						"Source": "Rolling Stone #253"
+					},
+					{
+						"Album": "Head Hunters",
+						"Artist": "Herbie Hancock",
+						"Year": "1973",
+						"Source": "Rolling Stone #254"
+					},
+					{
+						"Album": "The Freewheelin' Bob Dylan",
+						"Artist": "Bob Dylan",
+						"Year": "1963",
+						"Source": "Rolling Stone #255"
+					},
+					{
+						"Album": "Tracy Chapman",
+						"Artist": "Tracy Chapman",
+						"Year": "1988",
+						"Source": "Rolling Stone #256"
+					},
+					{
+						"Album": "Coat of Many Colors",
+						"Artist": "Dolly Parton",
+						"Year": "1971",
+						"Source": "Rolling Stone #257"
+					},
+					{
+						"Album": "The Hissing of Summer Lawns",
+						"Artist": "Joni Mitchell",
+						"Year": "1975",
+						"Source": "Rolling Stone #258"
+					},
+					{
+						"Album": "Pearl",
+						"Artist": "Janis Joplin",
+						"Year": "1971",
+						"Source": "Rolling Stone #259"
+					},
+					{
+						"Album": "Cut",
+						"Artist": "Slits",
+						"Year": "1979",
+						"Source": "Rolling Stone #260"
+					},
+					{
+						"Album": "Check Your Head",
+						"Artist": "Beastie Boys",
+						"Year": "1992",
+						"Source": "Rolling Stone #261"
+					},
+					{
+						"Album": "Power, Corruption & Lies",
+						"Artist": "New Order",
+						"Year": "1983",
+						"Source": "Rolling Stone #262"
+					},
+					{
+						"Album": "A Hard Day’s Night",
+						"Artist": "Beatles",
+						"Year": "1964",
+						"Source": "Rolling Stone #263"
+					},
+					{
+						"Album": "Wish You Were Here",
+						"Artist": "Pink Floyd",
+						"Year": "1975",
+						"Source": "Rolling Stone #264"
+					},
+					{
+						"Album": "Wowee Zowee",
+						"Artist": "Pavement",
+						"Year": "1995",
+						"Source": "Rolling Stone #265"
+					},
+					{
+						"Album": "Help!",
+						"Artist": "Beatles",
+						"Year": "1965",
+						"Source": "Rolling Stone #266"
+					},
+					{
+						"Album": "Double Nickels on the Dime",
+						"Artist": "Minutemen",
+						"Year": "1984",
+						"Source": "Rolling Stone #267"
+					},
+					{
+						"Album": "Sail Away",
+						"Artist": "Randy Newman",
+						"Year": "1972",
+						"Source": "Rolling Stone #268"
+					},
+					{
+						"Album": "Yeezus",
+						"Artist": "Kanye West",
+						"Year": "2013",
+						"Source": "Rolling Stone #269"
+					},
+					{
+						"Album": "Golden Hour",
+						"Artist": "Kacey Musgraves",
+						"Year": "2018",
+						"Source": "Rolling Stone #270"
+					},
+					{
+						"Album": "What’s the 411?",
+						"Artist": "Mary J. Blige",
+						"Year": "1992",
+						"Source": "Rolling Stone #271"
+					},
+					{
+						"Album": "White Light/White Heat",
+						"Artist": "Velvet Underground",
+						"Year": "1967",
+						"Source": "Rolling Stone #272"
+					},
+					{
+						"Album": "Entertainment!",
+						"Artist": "Gang of Four",
+						"Year": "1979",
+						"Source": "Rolling Stone #273"
+					},
+					{
+						"Album": "Sweetheart of the Rodeo",
+						"Artist": "Byrds",
+						"Year": "1968",
+						"Source": "Rolling Stone #274"
+					},
+					{
+						"Album": "Curtis",
+						"Artist": "Curtis Mayfield",
+						"Year": "1970",
+						"Source": "Rolling Stone #275"
+					},
+					{
+						"Album": "The Bends",
+						"Artist": "Radiohead",
+						"Year": "1995",
+						"Source": "Rolling Stone #276"
+					},
+					{
+						"Album": "The Diary of Alicia Keys",
+						"Artist": "Alicia Keys",
+						"Year": "2003",
+						"Source": "Rolling Stone #277"
+					},
+					{
+						"Album": "Houses of the Holy",
+						"Artist": "Led Zeppelin",
+						"Year": "1973",
+						"Source": "Rolling Stone #278"
+					},
+					{
+						"Album": "MTV Unplugged in New York",
+						"Artist": "Nirvana",
+						"Year": "1994",
+						"Source": "Rolling Stone #279"
+					},
+					{
+						"Album": "Get Rich or Die Tryin’",
+						"Artist": "50 Cent",
+						"Year": "2003",
+						"Source": "Rolling Stone #280"
+					},
+					{
+						"Album": "Nilsson Schmilsson",
+						"Artist": "Harry Nilsson",
+						"Year": "1971",
+						"Source": "Rolling Stone #281"
+					},
+					{
+						"Album": "In the Wee Small Hours",
+						"Artist": "Frank Sinatra",
+						"Year": "1955",
+						"Source": "Rolling Stone #282"
+					},
+					{
+						"Album": "Bad Girls",
+						"Artist": "Donna Summer",
+						"Year": "1979",
+						"Source": "Rolling Stone #283"
+					},
+					{
+						"Album": "Down Every Road (1962-1994)",
+						"Artist": "Merle Haggard",
+						"Year": "1996",
+						"Source": "Rolling Stone #284"
+					},
+					{
+						"Album": "Third/Sister Lovers",
+						"Artist": "Big Star",
+						"Year": "1978",
+						"Source": "Rolling Stone #285"
+					},
+					{
+						"Album": "Californication",
+						"Artist": "Red Hot Chili Peppers",
+						"Year": "1999",
+						"Source": "Rolling Stone #286"
+					},
+					{
+						"Album": "Mr. Tambourine Man",
+						"Artist": "Byrds",
+						"Year": "1965",
+						"Source": "Rolling Stone #287"
+					},
+					{
+						"Album": "The Modern Lovers",
+						"Artist": "Modern Lovers",
+						"Year": "1976",
+						"Source": "Rolling Stone #288"
+					},
+					{
+						"Album": "Post",
+						"Artist": "Björk",
+						"Year": "1995",
+						"Source": "Rolling Stone #289"
+					},
+					{
+						"Album": "Speakerboxxx / The Love Below",
+						"Artist": "OutKast",
+						"Year": "2003",
+						"Source": "Rolling Stone #290"
+					},
+					{
+						"Album": "The Writing’s on the Wall",
+						"Artist": "Destiny’s Child",
+						"Year": "1999",
+						"Source": "Rolling Stone #291"
+					},
+					{
+						"Album": "Van Halen",
+						"Artist": "Van Halen",
+						"Year": "1978",
+						"Source": "Rolling Stone #292"
+					},
+					{
+						"Album": "Last Splash",
+						"Artist": "Breeders",
+						"Year": "1993",
+						"Source": "Rolling Stone #293"
+					},
+					{
+						"Album": "Weezer [Blue Album]",
+						"Artist": "Weezer",
+						"Year": "1994",
+						"Source": "Rolling Stone #294"
+					},
+					{
+						"Album": "Random Access Memories",
+						"Artist": "Daft Punk",
+						"Year": "2013",
+						"Source": "Rolling Stone #295"
+					},
+					{
+						"Album": "Rust Never Sleeps",
+						"Artist": "Neil Young & Crazy Horse",
+						"Year": "1979",
+						"Source": "Rolling Stone #296"
+					},
+					{
+						"Album": "So",
+						"Artist": "Peter Gabriel",
+						"Year": "1986",
+						"Source": "Rolling Stone #297"
+					},
+					{
+						"Album": "Full Moon Fever",
+						"Artist": "Tom Petty",
+						"Year": "1989",
+						"Source": "Rolling Stone #298"
+					},
+					{
+						"Album": "Live at the Regal",
+						"Artist": "B.B. King",
+						"Year": "1965",
+						"Source": "Rolling Stone #299"
+					},
+					{
+						"Album": "Come On Over",
+						"Artist": "Shania Twain",
+						"Year": "1997",
+						"Source": "Rolling Stone #300"
+					},
+					{
+						"Album": "New York Dolls",
+						"Artist": "New York Dolls",
+						"Year": "1973",
+						"Source": "Rolling Stone #301"
+					},
+					{
+						"Album": "Tonight’s the Night",
+						"Artist": "Neil Young",
+						"Year": "1975",
+						"Source": "Rolling Stone #302"
+					},
+					{
+						"Album": "The Definitive Collection",
+						"Artist": "ABBA",
+						"Year": "2001",
+						"Source": "Rolling Stone #303"
+					},
+					{
+						"Album": "Just As I Am",
+						"Artist": "Bill Withers",
+						"Year": "1971",
+						"Source": "Rolling Stone #304"
+					},
+					{
+						"Album": "Alive!",
+						"Artist": "Kiss",
+						"Year": "1975",
+						"Source": "Rolling Stone #305"
+					},
+					{
+						"Album": "I’m Still in Love With You",
+						"Artist": "Al Green",
+						"Year": "1972",
+						"Source": "Rolling Stone #306"
+					},
+					{
+						"Album": "Portrait of a Legend 1951–1964",
+						"Artist": "Sam Cooke",
+						"Year": "2003",
+						"Source": "Rolling Stone #307"
+					},
+					{
+						"Album": "Here Come the Warm Jets",
+						"Artist": "Brian Eno",
+						"Year": "1974",
+						"Source": "Rolling Stone #308"
+					},
+					{
+						"Album": "Closer",
+						"Artist": "Joy Division",
+						"Year": "1980",
+						"Source": "Rolling Stone #309"
+					},
+					{
+						"Album": "Pink Flag",
+						"Artist": "Wire",
+						"Year": "1977",
+						"Source": "Rolling Stone #310"
+					},
+					{
+						"Album": "On the Beach",
+						"Artist": "Neil Young",
+						"Year": "1974",
+						"Source": "Rolling Stone #311"
+					},
+					{
+						"Album": "A Seat at the Table",
+						"Artist": "Solange",
+						"Year": "2016",
+						"Source": "Rolling Stone #312"
+					},
+					{
+						"Album": "Stories From the City, Stories From the Sea",
+						"Artist": "PJ Harvey",
+						"Year": "2000",
+						"Source": "Rolling Stone #313"
+					},
+					{
+						"Album": "One in a Million",
+						"Artist": "Aaliyah",
+						"Year": "1996",
+						"Source": "Rolling Stone #314"
+					},
+					{
+						"Album": "El Mal Querer",
+						"Artist": "Rosalía",
+						"Year": "2018",
+						"Source": "Rolling Stone #315"
+					},
+					{
+						"Album": "The Who Sell Out",
+						"Artist": "Who",
+						"Year": "1967",
+						"Source": "Rolling Stone #316"
+					},
+					{
+						"Album": "Lady in Satin",
+						"Artist": "Billie Holiday",
+						"Year": "1958",
+						"Source": "Rolling Stone #317"
+					},
+					{
+						"Album": "The Velvet Rope",
+						"Artist": "Janet",
+						"Year": "1997",
+						"Source": "Rolling Stone #318"
+					},
+					{
+						"Album": "The Stone Roses",
+						"Artist": "Stone Roses",
+						"Year": "1989",
+						"Source": "Rolling Stone #319"
+					},
+					{
+						"Album": "Los Angeles",
+						"Artist": "X",
+						"Year": "1980",
+						"Source": "Rolling Stone #320"
+					},
+					{
+						"Album": "Norman Fucking Rockwell!",
+						"Artist": "Lana Del Rey",
+						"Year": "2019",
+						"Source": "Rolling Stone #321"
+					},
+					{
+						"Album": "From Elvis in Memphis",
+						"Artist": "Elvis Presley",
+						"Year": "1969",
+						"Source": "Rolling Stone #322"
+					},
+					{
+						"Album": "Sandinista!",
+						"Artist": "Clash",
+						"Year": "1980",
+						"Source": "Rolling Stone #323"
+					},
+					{
+						"Album": "A Rush of Blood to the Head",
+						"Artist": "Coldplay",
+						"Year": "2002",
+						"Source": "Rolling Stone #324"
+					},
+					{
+						"Album": "All Killer No Filler! The Jerry Lee Lewis Anthology",
+						"Artist": "Jerry Lee Lewis",
+						"Year": "1993",
+						"Source": "Rolling Stone #325"
+					},
+					{
+						"Album": "Dirty Mind",
+						"Artist": "Prince",
+						"Year": "1980",
+						"Source": "Rolling Stone #326"
+					},
+					{
+						"Album": "Live at Leeds",
+						"Artist": "Who",
+						"Year": "1970",
+						"Source": "Rolling Stone #327"
+					},
+					{
+						"Album": "Modern Vampires of the City",
+						"Artist": "Vampire Weekend",
+						"Year": "2013",
+						"Source": "Rolling Stone #328"
+					},
+					{
+						"Album": "Endtroducing.....",
+						"Artist": "DJ Shadow",
+						"Year": "1996",
+						"Source": "Rolling Stone #329"
+					},
+					{
+						"Album": "Aftermath",
+						"Artist": "Rolling Stones",
+						"Year": "1966",
+						"Source": "Rolling Stone #330"
+					},
+					{
+						"Album": "Like a Prayer",
+						"Artist": "Madonna",
+						"Year": "1989",
+						"Source": "Rolling Stone #331"
+					},
+					{
+						"Album": "Elvis Presley",
+						"Artist": "Elvis Presley",
+						"Year": "1956",
+						"Source": "Rolling Stone #332"
+					},
+					{
+						"Album": "Still Bill",
+						"Artist": "Bill Withers",
+						"Year": "1972",
+						"Source": "Rolling Stone #333"
+					},
+					{
+						"Album": "Abraxas",
+						"Artist": "Santana",
+						"Year": "1970",
+						"Source": "Rolling Stone #334"
+					},
+					{
+						"Album": "The Basement Tapes",
+						"Artist": "Bob Dylan & The Band",
+						"Year": "1975",
+						"Source": "Rolling Stone #335"
+					},
+					{
+						"Album": "Avalon",
+						"Artist": "Roxy Music",
+						"Year": "1982",
+						"Source": "Rolling Stone #336"
+					},
+					{
+						"Album": "John Wesley Harding",
+						"Artist": "Bob Dylan",
+						"Year": "1968",
+						"Source": "Rolling Stone #337"
+					},
+					{
+						"Album": "Another Green World",
+						"Artist": "Brian Eno",
+						"Year": "1975",
+						"Source": "Rolling Stone #338"
+					},
+					{
+						"Album": "Rhythm Nation 1814",
+						"Artist": "Janet Jackson",
+						"Year": "1989",
+						"Source": "Rolling Stone #339"
+					},
+					{
+						"Album": "Doggystyle",
+						"Artist": "Snoop Dogg",
+						"Year": "1993",
+						"Source": "Rolling Stone #340"
+					},
+					{
+						"Album": "Siamese Dream",
+						"Artist": "Smashing Pumpkins",
+						"Year": "1993",
+						"Source": "Rolling Stone #341"
+					},
+					{
+						"Album": "Let It Be",
+						"Artist": "Beatles",
+						"Year": "1970",
+						"Source": "Rolling Stone #342"
+					},
+					{
+						"Album": "Greatest Hits",
+						"Artist": "Sly & the Family Stone",
+						"Year": "1970",
+						"Source": "Rolling Stone #343"
+					},
+					{
+						"Album": "Funky Kingston",
+						"Artist": "Toots & the Maytals",
+						"Year": "1973",
+						"Source": "Rolling Stone #344"
+					},
+					{
+						"Album": "The Wild, the Innocent & the E Street Shuffle",
+						"Artist": "Bruce Springsteen",
+						"Year": "1973",
+						"Source": "Rolling Stone #345"
+					},
+					{
+						"Album": "AM",
+						"Artist": "Arctic Monkeys",
+						"Year": "2013",
+						"Source": "Rolling Stone #346"
+					},
+					{
+						"Album": "Liquid Swords",
+						"Artist": "Genius/GZA",
+						"Year": "1995",
+						"Source": "Rolling Stone #347"
+					},
+					{
+						"Album": "Time (The Revelator)",
+						"Artist": "Gillian Welch",
+						"Year": "2001",
+						"Source": "Rolling Stone #348"
+					},
+					{
+						"Album": "Kick Out the Jams",
+						"Artist": "MC5",
+						"Year": "1969",
+						"Source": "Rolling Stone #349"
+					},
+					{
+						"Album": "Music of My Mind",
+						"Artist": "Stevie Wonder",
+						"Year": "1972",
+						"Source": "Rolling Stone #350"
+					},
+					{
+						"Album": "For Your Pleasure",
+						"Artist": "Roxy Music",
+						"Year": "1973",
+						"Source": "Rolling Stone #351"
+					},
+					{
+						"Album": "The Slim Shady LP",
+						"Artist": "Eminem",
+						"Year": "1999",
+						"Source": "Rolling Stone #352"
+					},
+					{
+						"Album": "The Cars",
+						"Artist": "Cars",
+						"Year": "1978",
+						"Source": "Rolling Stone #353"
+					},
+					{
+						"Album": "Germfree Adolescents",
+						"Artist": "X-Ray Spex",
+						"Year": "1978",
+						"Source": "Rolling Stone #354"
+					},
+					{
+						"Album": "Black Sabbath",
+						"Artist": "Black Sabbath",
+						"Year": "1970",
+						"Source": "Rolling Stone #355"
+					},
+					{
+						"Album": "Gris-Gris",
+						"Artist": "Dr. John",
+						"Year": "1968",
+						"Source": "Rolling Stone #356"
+					},
+					{
+						"Album": "Rain Dogs",
+						"Artist": "Tom Waits",
+						"Year": "1985",
+						"Source": "Rolling Stone #357"
+					},
+					{
+						"Album": "Goo",
+						"Artist": "Sonic Youth",
+						"Year": "1990",
+						"Source": "Rolling Stone #358"
+					},
+					{
+						"Album": "Radio City",
+						"Artist": "Big Star",
+						"Year": "1974",
+						"Source": "Rolling Stone #359"
+					},
+					{
+						"Album": "One Nation Under a Groove",
+						"Artist": "Funkadelic",
+						"Year": "1978",
+						"Source": "Rolling Stone #360"
+					},
+					{
+						"Album": "The Black Parade",
+						"Artist": "My Chemical Romance",
+						"Year": "2006",
+						"Source": "Rolling Stone #361"
+					},
+					{
+						"Album": "Never Too Much",
+						"Artist": "Luther Vandross",
+						"Year": "1981",
+						"Source": "Rolling Stone #362"
+					},
+					{
+						"Album": "Mothership Connection",
+						"Artist": "Parliament",
+						"Year": "1975",
+						"Source": "Rolling Stone #363"
+					},
+					{
+						"Album": "More Songs About Buildings and Food",
+						"Artist": "Talking Heads",
+						"Year": "1978",
+						"Source": "Rolling Stone #364"
+					},
+					{
+						"Album": "Madvillainy",
+						"Artist": "Madvillain",
+						"Year": "2004",
+						"Source": "Rolling Stone #365"
+					},
+					{
+						"Album": "Rocks",
+						"Artist": "Aerosmith",
+						"Year": "1976",
+						"Source": "Rolling Stone #366"
+					},
+					{
+						"Album": "If You’re Reading This It’s Too Late",
+						"Artist": "Drake",
+						"Year": "2015",
+						"Source": "Rolling Stone #367"
+					},
+					{
+						"Album": "All Things Must Pass",
+						"Artist": "George Harrison",
+						"Year": "1970",
+						"Source": "Rolling Stone #368"
+					},
+					{
+						"Album": "The Infamous",
+						"Artist": "Mobb Deep",
+						"Year": "1995",
+						"Source": "Rolling Stone #369"
+					},
+					{
+						"Album": "Tha Carter II",
+						"Artist": "Lil Wayne",
+						"Year": "2005",
+						"Source": "Rolling Stone #370"
+					},
+					{
+						"Album": "Anthology",
+						"Artist": "Temptations",
+						"Year": "1973",
+						"Source": "Rolling Stone #371"
+					},
+					{
+						"Album": "Cheap Thrills",
+						"Artist": "Big Brother & the Holding Company",
+						"Year": "1968",
+						"Source": "Rolling Stone #372"
+					},
+					{
+						"Album": "Hot Buttered Soul",
+						"Artist": "Isaac Hayes",
+						"Year": "1969",
+						"Source": "Rolling Stone #373"
+					},
+					{
+						"Album": "King of the Delta Blues Singers",
+						"Artist": "Robert Johnson",
+						"Year": "1961",
+						"Source": "Rolling Stone #374"
+					},
+					{
+						"Album": "Dookie",
+						"Artist": "Green Day",
+						"Year": "1994",
+						"Source": "Rolling Stone #375"
+					},
+					{
+						"Album": "In the Aeroplane Over the Sea",
+						"Artist": "Neutral Milk Hotel",
+						"Year": "1998",
+						"Source": "Rolling Stone #376"
+					},
+					{
+						"Album": "Fever to Tell",
+						"Artist": "Yeah Yeah Yeahs",
+						"Year": "2003",
+						"Source": "Rolling Stone #377"
+					},
+					{
+						"Album": "Run‐D.M.C.",
+						"Artist": "Run-DMC",
+						"Year": "1984",
+						"Source": "Rolling Stone #378"
+					},
+					{
+						"Album": "Moving Pictures",
+						"Artist": "Rush",
+						"Year": "1981",
+						"Source": "Rolling Stone #379"
+					},
+					{
+						"Album": "Mingus Ah Um",
+						"Artist": "Charles Mingus",
+						"Year": "1959",
+						"Source": "Rolling Stone #380"
+					},
+					{
+						"Album": "(Pronounced 'lĕh-'nérd 'skin-'nérd)",
+						"Artist": "Lynyrd Skynyrd",
+						"Year": "1973",
+						"Source": "Rolling Stone #381"
+					},
+					{
+						"Album": "Currents",
+						"Artist": "Tame Impala",
+						"Year": "2015",
+						"Source": "Rolling Stone #382"
+					},
+					{
+						"Album": "Mezzanine",
+						"Artist": "Massive Attack",
+						"Year": "1998",
+						"Source": "Rolling Stone #383"
+					},
+					{
+						"Album": "The Kinks Are the Village Green Preservation Society",
+						"Artist": "Kinks",
+						"Year": "1968",
+						"Source": "Rolling Stone #384"
+					},
+					{
+						"Album": "Rocket to Russia",
+						"Artist": "Ramones",
+						"Year": "1977",
+						"Source": "Rolling Stone #385"
+					},
+					{
+						"Album": "Donuts",
+						"Artist": "J Dilla",
+						"Year": "2006",
+						"Source": "Rolling Stone #386"
+					},
+					{
+						"Album": "In Rainbows",
+						"Artist": "Radiohead",
+						"Year": "2007",
+						"Source": "Rolling Stone #387"
+					},
+					{
+						"Album": "Young, Gifted and Black",
+						"Artist": "Aretha Franklin",
+						"Year": "1972",
+						"Source": "Rolling Stone #388"
+					},
+					{
+						"Album": "The Emancipation of Mimi",
+						"Artist": "Mariah Carey",
+						"Year": "2005",
+						"Source": "Rolling Stone #389"
+					},
+					{
+						"Album": "Surfer Rosa",
+						"Artist": "Pixies",
+						"Year": "1988",
+						"Source": "Rolling Stone #390"
+					},
+					{
+						"Album": "Kaleidoscope",
+						"Artist": "Kelis",
+						"Year": "1999",
+						"Source": "Rolling Stone #391"
+					},
+					{
+						"Album": "Proud Mary: The Best of Ike and Tina Turner",
+						"Artist": "Ike & Tina Turner",
+						"Year": "1991",
+						"Source": "Rolling Stone #392"
+					},
+					{
+						"Album": "1989",
+						"Artist": "Taylor Swift",
+						"Year": "2014",
+						"Source": "Rolling Stone #393"
+					},
+					{
+						"Album": "Diana",
+						"Artist": "Diana Ross",
+						"Year": "1980",
+						"Source": "Rolling Stone #394"
+					},
+					{
+						"Album": "Black Messiah",
+						"Artist": "D’Angelo and The Vanguard",
+						"Year": "2014",
+						"Source": "Rolling Stone #395"
+					},
+					{
+						"Album": "Something/Anything?",
+						"Artist": "Todd Rundgren",
+						"Year": "1972",
+						"Source": "Rolling Stone #396"
+					},
+					{
+						"Album": "When We All Fall Asleep, Where Do We Go?",
+						"Artist": "Billie Eilish",
+						"Year": "2019",
+						"Source": "Rolling Stone #397"
+					},
+					{
+						"Album": "The Raincoats",
+						"Artist": "Raincoats",
+						"Year": "1979",
+						"Source": "Rolling Stone #398"
+					},
+					{
+						"Album": "Smile",
+						"Artist": "Brian Wilson",
+						"Year": "2004",
+						"Source": "Rolling Stone #399"
+					},
+					{
+						"Album": "Beauty and the Beat",
+						"Artist": "Go‐Go’s",
+						"Year": "1981",
+						"Source": "Rolling Stone #400"
+					},
+					{
+						"Album": "Blondie",
+						"Artist": "Blondie",
+						"Year": "1976",
+						"Source": "Rolling Stone #401"
+					},
+					{
+						"Album": "Expensive Shit",
+						"Artist": "Fela Kuti & Africa 70",
+						"Year": "1975",
+						"Source": "Rolling Stone #402"
+					},
+					{
+						"Album": "Supreme Clientele",
+						"Artist": "Ghostface Killah",
+						"Year": "2000",
+						"Source": "Rolling Stone #403"
+					},
+					{
+						"Album": "Rapture",
+						"Artist": "Anita Baker",
+						"Year": "1986",
+						"Source": "Rolling Stone #404"
+					},
+					{
+						"Album": "Be Here Now",
+						"Artist": "Various Artists",
+						"Year": "1972",
+						"Source": "Rolling Stone #405"
+					},
+					{
+						"Album": "69 Love Songs",
+						"Artist": "Magnetic Fields",
+						"Year": "1999",
+						"Source": "Rolling Stone #406"
+					},
+					{
+						"Album": "Everybody Knows This Is Nowhere",
+						"Artist": "Neil Young & Crazy Horse",
+						"Year": "1969",
+						"Source": "Rolling Stone #407"
+					},
+					{
+						"Album": "Ace of Spades",
+						"Artist": "Motorhead",
+						"Year": "1980",
+						"Source": "Rolling Stone #408"
+					},
+					{
+						"Album": "Workingman’s Dead",
+						"Artist": "Grateful Dead",
+						"Year": "1970",
+						"Source": "Rolling Stone #409"
+					},
+					{
+						"Album": "Wild Honey",
+						"Artist": "Beach Boys",
+						"Year": "1967",
+						"Source": "Rolling Stone #410"
+					},
+					{
+						"Album": "Love and Theft",
+						"Artist": "Bob Dylan",
+						"Year": "2001",
+						"Source": "Rolling Stone #411"
+					},
+					{
+						"Album": "Going to a Go‐Go",
+						"Artist": "Smokey Robinson and the Miracles",
+						"Year": "1965",
+						"Source": "Rolling Stone #412"
+					},
+					{
+						"Album": "Cosmo’s Factory",
+						"Artist": "Creedence Clearwater Revival",
+						"Year": "1970",
+						"Source": "Rolling Stone #413"
+					},
+					{
+						"Album": "Risqué",
+						"Artist": "Chic",
+						"Year": "1979",
+						"Source": "Rolling Stone #414"
+					},
+					{
+						"Album": "Look-Ka Py Py",
+						"Artist": "Meters",
+						"Year": "1970",
+						"Source": "Rolling Stone #415"
+					},
+					{
+						"Album": "Things Fall Apart",
+						"Artist": "Roots",
+						"Year": "1999",
+						"Source": "Rolling Stone #416"
+					},
+					{
+						"Album": "The Shape of Jazz to Come",
+						"Artist": "Ornette Coleman",
+						"Year": "1959",
+						"Source": "Rolling Stone #417"
+					},
+					{
+						"Album": "Brothers in Arms",
+						"Artist": "Dire Straits",
+						"Year": "1985",
+						"Source": "Rolling Stone #418"
+					},
+					{
+						"Album": "Chief",
+						"Artist": "Eric Church",
+						"Year": "2011",
+						"Source": "Rolling Stone #419"
+					},
+					{
+						"Album": "That’s the Way of the World",
+						"Artist": "Earth, Wind & Fire",
+						"Year": "1975",
+						"Source": "Rolling Stone #420"
+					},
+					{
+						"Album": "Arular",
+						"Artist": "M.I.A.",
+						"Year": "2005",
+						"Source": "Rolling Stone #421"
+					},
+					{
+						"Album": "Let’s Get It On",
+						"Artist": "Marvin Gaye",
+						"Year": "1973",
+						"Source": "Rolling Stone #422"
+					},
+					{
+						"Album": "I Can Hear the Heart Beating as One",
+						"Artist": "Yo La Tengo",
+						"Year": "1997",
+						"Source": "Rolling Stone #423"
+					},
+					{
+						"Album": "Odelay",
+						"Artist": "Beck",
+						"Year": "1996",
+						"Source": "Rolling Stone #424"
+					},
+					{
+						"Album": "Paul Simon",
+						"Artist": "Paul Simon",
+						"Year": "1972",
+						"Source": "Rolling Stone #425"
+					},
+					{
+						"Album": "Lucinda Williams",
+						"Artist": "Lucinda Williams",
+						"Year": "1988",
+						"Source": "Rolling Stone #426"
+					},
+					{
+						"Album": "Call Me",
+						"Artist": "Al Green",
+						"Year": "1973",
+						"Source": "Rolling Stone #427"
+					},
+					{
+						"Album": "New Day Rising",
+						"Artist": "Hüsker Dü",
+						"Year": "1985",
+						"Source": "Rolling Stone #428"
+					},
+					{
+						"Album": "Reach Out",
+						"Artist": "Four Tops",
+						"Year": "1967",
+						"Source": "Rolling Stone #429"
+					},
+					{
+						"Album": "My Aim Is True",
+						"Artist": "Elvis Costello",
+						"Year": "1977",
+						"Source": "Rolling Stone #430"
+					},
+					{
+						"Album": "How Will the Wolf Survive?",
+						"Artist": "Los Lobos",
+						"Year": "1984",
+						"Source": "Rolling Stone #431"
+					},
+					{
+						"Album": "Confessions",
+						"Artist": "Usher",
+						"Year": "2004",
+						"Source": "Rolling Stone #432"
+					},
+					{
+						"Album": "Sound of Silver",
+						"Artist": "LCD Soundsystem",
+						"Year": "2007",
+						"Source": "Rolling Stone #433"
+					},
+					{
+						"Album": "Crooked Rain, Crooked Rain",
+						"Artist": "Pavement",
+						"Year": "1994",
+						"Source": "Rolling Stone #434"
+					},
+					{
+						"Album": "Actually",
+						"Artist": "Pet Shop Boys",
+						"Year": "1987",
+						"Source": "Rolling Stone #435"
+					},
+					{
+						"Album": "All Eyez on Me",
+						"Artist": "2Pac",
+						"Year": "1996",
+						"Source": "Rolling Stone #436"
+					},
+					{
+						"Album": "Screamadelica",
+						"Artist": "Primal Scream",
+						"Year": "1991",
+						"Source": "Rolling Stone #437"
+					},
+					{
+						"Album": "Parklife",
+						"Artist": "Blur",
+						"Year": "1994",
+						"Source": "Rolling Stone #438"
+					},
+					{
+						"Album": "Sex Machine",
+						"Artist": "James Brown",
+						"Year": "1970",
+						"Source": "Rolling Stone #439"
+					},
+					{
+						"Album": "Coal Miner’s Daughter",
+						"Artist": "Loretta Lynn",
+						"Year": "1970",
+						"Source": "Rolling Stone #440"
+					},
+					{
+						"Album": "Blackout",
+						"Artist": "Britney Spears",
+						"Year": "2007",
+						"Source": "Rolling Stone #441"
+					},
+					{
+						"Album": "Beauty Behind the Madness",
+						"Artist": "Weeknd",
+						"Year": "2015",
+						"Source": "Rolling Stone #442"
+					},
+					{
+						"Album": "Scary Monsters… and Super Creeps",
+						"Artist": "David Bowie",
+						"Year": "1980",
+						"Source": "Rolling Stone #443"
+					},
+					{
+						"Album": "Extraordinary Machine",
+						"Artist": "Fiona Apple",
+						"Year": "2005",
+						"Source": "Rolling Stone #444"
+					},
+					{
+						"Album": "Close to the Edge",
+						"Artist": "Yes",
+						"Year": "1972",
+						"Source": "Rolling Stone #445"
+					},
+					{
+						"Album": "Journey in Satchidananda",
+						"Artist": "Alice Coltrane featuring Pharoah Sanders",
+						"Year": "1971",
+						"Source": "Rolling Stone #446"
+					},
+					{
+						"Album": "X 100PRE",
+						"Artist": "Bad Bunny",
+						"Year": "2018",
+						"Source": "Rolling Stone #447"
+					},
+					{
+						"Album": "Complete & Unbelievable - The Otis Redding Dictionary of Soul",
+						"Artist": "Otis Redding",
+						"Year": "1966",
+						"Source": "Rolling Stone #448"
+					},
+					{
+						"Album": "Elephant",
+						"Artist": "White Stripes",
+						"Year": "2003",
+						"Source": "Rolling Stone #449"
+					},
+					{
+						"Album": "Ram",
+						"Artist": "Paul & Linda McCartney",
+						"Year": "1971",
+						"Source": "Rolling Stone #450"
+					},
+					{
+						"Album": "First Take",
+						"Artist": "Roberta Flack",
+						"Year": "1969",
+						"Source": "Rolling Stone #451"
+					},
+					{
+						"Album": "Anthology",
+						"Artist": "Diana Ross & The Supremes",
+						"Year": "1974",
+						"Source": "Rolling Stone #452"
+					},
+					{
+						"Album": "Pretty Hate Machine",
+						"Artist": "Nine Inch Nails",
+						"Year": "1989",
+						"Source": "Rolling Stone #453"
+					},
+					{
+						"Album": "Ege Bamyası",
+						"Artist": "Can",
+						"Year": "1972",
+						"Source": "Rolling Stone #454"
+					},
+					{
+						"Album": "Bo Diddley / Go Bo Diddley",
+						"Artist": "Bo Diddley",
+						"Year": "1986",
+						"Source": "Rolling Stone #455"
+					},
+					{
+						"Album": "Greatest Hits",
+						"Artist": "Al Green",
+						"Year": "1975",
+						"Source": "Rolling Stone #456"
+					},
+					{
+						"Album": "I Do Not Want What I Haven’t Got",
+						"Artist": "Sinéad O’Connor",
+						"Year": "1990",
+						"Source": "Rolling Stone #457"
+					},
+					{
+						"Album": "Southeastern",
+						"Artist": "Jason Isbell",
+						"Year": "2013",
+						"Source": "Rolling Stone #458"
+					},
+					{
+						"Album": "Man on the Moon: The End of Day",
+						"Artist": "Kid Cudi",
+						"Year": "2009",
+						"Source": "Rolling Stone #459"
+					},
+					{
+						"Album": "Melodrama",
+						"Artist": "Lorde",
+						"Year": "2017",
+						"Source": "Rolling Stone #460"
+					},
+					{
+						"Album": "For Emma, Forever Ago",
+						"Artist": "Bon Iver",
+						"Year": "2008",
+						"Source": "Rolling Stone #461"
+					},
+					{
+						"Album": "The Gilded Palace of Sin",
+						"Artist": "Flying Burrito Brothers",
+						"Year": "1969",
+						"Source": "Rolling Stone #462"
+					},
+					{
+						"Album": "Eli and the Thirteenth Confession",
+						"Artist": "Laura Nyro",
+						"Year": "1968",
+						"Source": "Rolling Stone #463"
+					},
+					{
+						"Album": "3+3",
+						"Artist": "Isley Brothers",
+						"Year": "1973",
+						"Source": "Rolling Stone #464"
+					},
+					{
+						"Album": "The Best of the Classic Years",
+						"Artist": "King Sunny Adé",
+						"Year": "2003",
+						"Source": "Rolling Stone #465"
+					},
+					{
+						"Album": "The Beach Boys Today!",
+						"Artist": "Beach Boys",
+						"Year": "1965",
+						"Source": "Rolling Stone #466"
+					},
+					{
+						"Album": "BLACKsummers’night",
+						"Artist": "Maxwell",
+						"Year": "2009",
+						"Source": "Rolling Stone #467"
+					},
+					{
+						"Album": "Some Girls",
+						"Artist": "Rolling Stones",
+						"Year": "1978",
+						"Source": "Rolling Stone #468"
+					},
+					{
+						"Album": "Clandestino",
+						"Artist": "Manu Chao",
+						"Year": "1997",
+						"Source": "Rolling Stone #469"
+					},
+					{
+						"Album": "400 Degreez",
+						"Artist": "Juvenile",
+						"Year": "1998",
+						"Source": "Rolling Stone #470"
+					},
+					{
+						"Album": "Surrealistic Pillow",
+						"Artist": "Jefferson Airplane",
+						"Year": "1967",
+						"Source": "Rolling Stone #471"
+					},
+					{
+						"Album": "Ctrl",
+						"Artist": "SZA",
+						"Year": "2017",
+						"Source": "Rolling Stone #472"
+					},
+					{
+						"Album": "Barrio Fino",
+						"Artist": "Daddy Yankee",
+						"Year": "2004",
+						"Source": "Rolling Stone #473"
+					},
+					{
+						"Album": "#1 Record",
+						"Artist": "Big Star",
+						"Year": "1972",
+						"Source": "Rolling Stone #474"
+					},
+					{
+						"Album": "Sheryl Crow",
+						"Artist": "Sheryl Crow",
+						"Year": "1996",
+						"Source": "Rolling Stone #475"
+					},
+					{
+						"Album": "Kimono My House",
+						"Artist": "Sparks",
+						"Year": "1974",
+						"Source": "Rolling Stone #476"
+					},
+					{
+						"Album": "Moanin’ in the Moonlight",
+						"Artist": "Howlin’ Wolf",
+						"Year": "1959",
+						"Source": "Rolling Stone #477"
+					},
+					{
+						"Album": "Something Else by The Kinks",
+						"Artist": "Kinks",
+						"Year": "1967",
+						"Source": "Rolling Stone #478"
+					},
+					{
+						"Album": "Amor prohibido",
+						"Artist": "Selena",
+						"Year": "1994",
+						"Source": "Rolling Stone #479"
+					},
+					{
+						"Album": "The Weight of These Wings",
+						"Artist": "Miranda Lambert",
+						"Year": "2016",
+						"Source": "Rolling Stone #480"
+					},
+					{
+						"Album": "If You’re Feeling Sinister",
+						"Artist": "Belle & Sebastian",
+						"Year": "1996",
+						"Source": "Rolling Stone #481"
+					},
+					{
+						"Album": "Bizarre Ride II the Pharcyde",
+						"Artist": "Pharcyde",
+						"Year": "1992",
+						"Source": "Rolling Stone #482"
+					},
+					{
+						"Album": "The Anthology",
+						"Artist": "Muddy Waters",
+						"Year": "2001",
+						"Source": "Rolling Stone #483"
+					},
+					{
+						"Album": "Born This Way",
+						"Artist": "Lady Gaga",
+						"Year": "2011",
+						"Source": "Rolling Stone #484"
+					},
+					{
+						"Album": "I Want to See the Bright Lights Tonight",
+						"Artist": "Richard & Linda Thompson",
+						"Year": "1974",
+						"Source": "Rolling Stone #485"
+					},
+					{
+						"Album": "Continuum",
+						"Artist": "John Mayer",
+						"Year": "2006",
+						"Source": "Rolling Stone #486"
+					},
+					{
+						"Album": "Damaged",
+						"Artist": "Black Flag",
+						"Year": "1981",
+						"Source": "Rolling Stone #487"
+					},
+					{
+						"Album": "The Stooges",
+						"Artist": "Stooges",
+						"Year": "1969",
+						"Source": "Rolling Stone #488"
+					},
+					{
+						"Album": "Back to Mono (1958–1969)",
+						"Artist": "Various Artists",
+						"Year": "1991",
+						"Source": "Rolling Stone #489"
+					},
+					{
+						"Album": "Heart Like a Wheel",
+						"Artist": "Linda Ronstadt",
+						"Year": "1974",
+						"Source": "Rolling Stone #490"
+					},
+					{
+						"Album": "Fine Line",
+						"Artist": "Harry Styles",
+						"Year": "2019",
+						"Source": "Rolling Stone #491"
+					},
+					{
+						"Album": "Nick of Time",
+						"Artist": "Bonnie Raitt",
+						"Year": "1989",
+						"Source": "Rolling Stone #492"
+					},
+					{
+						"Album": "Here, My Dear",
+						"Artist": "Marvin Gaye",
+						"Year": "1978",
+						"Source": "Rolling Stone #493"
+					},
+					{
+						"Album": "Presenting the Fabulous Ronettes Featuring Veronica",
+						"Artist": "Ronettes",
+						"Year": "1964",
+						"Source": "Rolling Stone #494"
+					},
+					{
+						"Album": "II",
+						"Artist": "Boyz II Men",
+						"Year": "1994",
+						"Source": "Rolling Stone #495"
+					},
+					{
+						"Album": "¿Dónde Están los Ladrones?",
+						"Artist": "Shakira",
+						"Year": "1998",
+						"Source": "Rolling Stone #496"
+					},
+					{
+						"Album": "The Indestructible Beat of Soweto",
+						"Artist": "Various Artists",
+						"Year": "1985",
+						"Source": "Rolling Stone #497"
+					},
+					{
+						"Album": "Suicide",
+						"Artist": "Suicide",
+						"Year": "1977",
+						"Source": "Rolling Stone #498"
+					},
+					{
+						"Album": "Ask Rufus",
+						"Artist": "Rufus & Chaka Khan",
+						"Year": "1977",
+						"Source": "Rolling Stone #499"
+					},
+					{
+						"Album": "Funeral",
+						"Artist": "Arcade Fire",
+						"Year": "2004",
+						"Source": "Rolling Stone #500"
+					},
+					{
+						"Album": "Highway to Hell",
+						"Artist": "AC/DC",
+						"Year": "1979",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Toys in the Attic",
+						"Artist": "Aerosmith",
+						"Year": "1975",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Born Under a Bad Sign",
+						"Artist": "Albert King",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Love It to Death",
+						"Artist": "Alice Cooper",
+						"Year": "1971",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Whatever People Say I Am, That's What I'm Now",
+						"Artist": "Arctic Monkeys",
+						"Year": "2005",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Live in Cook County Jail",
+						"Artist": "B.B. King",
+						"Year": "1970",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Can't Get Enough",
+						"Artist": "Barry White",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Sunflower",
+						"Artist": "Beach Boys",
+						"Year": "1970",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Smile Sessions",
+						"Artist": "Beach Boys",
+						"Year": "2011",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "With the Beatles",
+						"Artist": "Beatles",
+						"Year": "1963",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Please Please Me",
+						"Artist": "Beatles",
+						"Year": "1963",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Sea Change",
+						"Artist": "Beck",
+						"Year": "2002",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "52nd Street",
+						"Artist": "Billy Joel",
+						"Year": "1978",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Child Is Father to the Man",
+						"Artist": "Blood, Sweat & Tears",
+						"Year": "1968",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Desire",
+						"Artist": "Bob Dylan",
+						"Year": "1976",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Time Out of Mind",
+						"Artist": "Bob Dylan",
+						"Year": "1997",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Modern Times",
+						"Artist": "Bob Dylan",
+						"Year": "2006",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Natty Dread",
+						"Artist": "Bob Marley & the Wailers",
+						"Year": "1975",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Burnin'",
+						"Artist": "Bob Marley & the Wailers",
+						"Year": "1975",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Two Steps From the Blues",
+						"Artist": "Bobby \"Blue\" Bland",
+						"Year": "1961",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Give It Up",
+						"Artist": "Bonnie Raitt",
+						"Year": "1972",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Boz Scaggs",
+						"Artist": "Boz Scaggs",
+						"Year": "1969",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Greetings from Asbury Park, N.J.",
+						"Artist": "Bruce Springsteen",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Tunnel of Love",
+						"Artist": "Bruce Springsteen",
+						"Year": "1987",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Rising",
+						"Artist": "Bruce Springsteen",
+						"Year": "2002",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The \"Chirping\" Crickets",
+						"Artist": "Buddy Holly and the Crickets",
+						"Year": "1957",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Buena Vista Social Club",
+						"Artist": "Buena Vista Social Club",
+						"Year": "1997",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Buffalo Springfield Again",
+						"Artist": "Buffalo Springfield",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Younger Than Yesterday",
+						"Artist": "Byrds",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Byrds' Greatest Hits",
+						"Artist": "Byrds",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Notorious Byrd Brothers",
+						"Artist": "Byrds",
+						"Year": "1968",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Trout Mask Replica",
+						"Artist": "Captain Beefheart & his Magic Band",
+						"Year": "1969",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Close to You",
+						"Artist": "Carpenters",
+						"Year": "1970",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "In Color",
+						"Artist": "Cheap Trick",
+						"Year": "1977",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Cheap Trick At Budokan",
+						"Artist": "Cheap Trick",
+						"Year": "1979",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Fresh Cream",
+						"Artist": "Cream",
+						"Year": "1966",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Wheels of Fire",
+						"Artist": "Cream",
+						"Year": "1968",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Green River",
+						"Artist": "Creedence Clearwater Revival",
+						"Year": "1969",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Chronicle - The 20 Greatest Hits",
+						"Artist": "Creedence Clearwater Revival",
+						"Year": "1976",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Boys Don't Cry",
+						"Artist": "Cure",
+						"Year": "1980",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Anthology 1961-1977",
+						"Artist": "Curtis Mayfield and the Impressions",
+						"Year": "1992",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Aladdin Sane",
+						"Artist": "David Bowie",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Changesonebowie",
+						"Artist": "David Bowie",
+						"Year": "1976",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Pyromania",
+						"Artist": "Def Leppard",
+						"Year": "1983",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Hysteria",
+						"Artist": "Def Leppard",
+						"Year": "1987",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The End of Innocence",
+						"Artist": "Don Henley",
+						"Year": "1989",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Strange Days",
+						"Artist": "Doors",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "L.A. Woman",
+						"Artist": "Doors",
+						"Year": "1971",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Dr. John's Gumbo",
+						"Artist": "Dr. John",
+						"Year": "1972",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Drifters' Golden Hits",
+						"Artist": "Drifters",
+						"Year": "1968",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Heaven Up Here",
+						"Artist": "Echo & the Bunnymen",
+						"Year": "1981",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Elton John",
+						"Artist": "Elton John",
+						"Year": "1970",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Tumbleweed Connection",
+						"Artist": "Elton John",
+						"Year": "1970",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Captain Fantastic and the Brown Dirt Cowboy",
+						"Artist": "Elton John",
+						"Year": "1975",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Armed Forces",
+						"Artist": "Elvis Costello & The Attractions",
+						"Year": "1979",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Imperial Bedroom",
+						"Artist": "Elvis Costello & The Attractions",
+						"Year": "1982",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Strictly Business",
+						"Artist": "EPMD",
+						"Year": "1988",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "461 Ocean Boulevard",
+						"Artist": "Eric Clapton",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Slowhand",
+						"Artist": "Eric Clapton",
+						"Year": "1977",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Touch",
+						"Artist": "Eurythmics",
+						"Year": "1983",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Fleetwood Mac",
+						"Artist": "Fleetwood Mac",
+						"Year": "1975",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Songs for Swingin' Lovers!",
+						"Artist": "Frank Sinatra",
+						"Year": "1956",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Freak Out!",
+						"Artist": "Frank Zappa & the Mothers of Invention",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "We're Only in it for the Money",
+						"Artist": "Frank Zappa & the Mothers of Invention",
+						"Year": "1968",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Squeezing Out Sparks & Live Sparks [album and promo release packaged together]",
+						"Artist": "Graham Parker & the Rumour",
+						"Year": "1979",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Grievous Angel [or GP/Grievous Angel]",
+						"Artist": "Gram Parsons",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Anthem of the Sun",
+						"Artist": "Grateful Dead",
+						"Year": "1968",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Live Dead",
+						"Artist": "Grateful Dead",
+						"Year": "1969",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Complete Hank Williams",
+						"Artist": "Hank Williams",
+						"Year": "1998",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Howlin' Wolf",
+						"Artist": "Howlin' Wolf",
+						"Year": "1962",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Raw Power",
+						"Artist": "Iggy & the Stooges",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Mr. Excitement!",
+						"Artist": "Jackie Wilson",
+						"Year": "1992",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "For Everyman",
+						"Artist": "Jackson Browne",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Late for the Sky",
+						"Artist": "Jackson Browne",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Pretender",
+						"Artist": "Jackson Browne",
+						"Year": "1976",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "In the Jungle Groove",
+						"Artist": "James Brown",
+						"Year": "1986",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "20 All-Time Greatest Hits",
+						"Artist": "James Brown",
+						"Year": "2001",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Nothing's Shocking",
+						"Artist": "Jane's Addiction",
+						"Year": "1988",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Ritual de lo Habitual",
+						"Artist": "Jane's Addiction",
+						"Year": "1990",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Volunteers",
+						"Artist": "Jefferson Airplane",
+						"Year": "1969",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Psychocandy",
+						"Artist": "Jesus and Mary Chain",
+						"Year": "1985",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Aqualung",
+						"Artist": "Jethro Tull",
+						"Year": "1971",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Ultimate Collection 1948-1990",
+						"Artist": "John Lee Hooker",
+						"Year": "1991",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Blues Breakers with Eric Clapton",
+						"Artist": "John Mayall & the Bluesbreakers",
+						"Year": "1966",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "American Recordings",
+						"Artist": "Johnny Cash",
+						"Year": "1994",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Substance",
+						"Artist": "Joy Division",
+						"Year": "1988",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Kink Kronikles",
+						"Artist": "Kinks",
+						"Year": "1972",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Destroyer",
+						"Artist": "Kiss",
+						"Year": "1976",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Radio",
+						"Artist": "L.L. Cool J",
+						"Year": "1985",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Nightbirds",
+						"Artist": "Labelle",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Songs of Love and Hate",
+						"Artist": "Leonard Cohen",
+						"Year": "1971",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Very Best of Linda Ronstadt",
+						"Artist": "Linda Ronstadt",
+						"Year": "2002",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Best of Little Walter",
+						"Artist": "Little Walter",
+						"Year": "1957",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "All Time Greatest Hits",
+						"Artist": "Loretta Lynn",
+						"Year": "2002",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Berlin",
+						"Artist": "Lou Reed",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Kala",
+						"Artist": "M.I.A.",
+						"Year": "2007",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Music",
+						"Artist": "Madonna",
+						"Year": "2000",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "If You Can Believe Your Eyes and Ears",
+						"Artist": "Mamas & the Papas",
+						"Year": "1966",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Greatest Hits",
+						"Artist": "Mamas & the Papas",
+						"Year": "1998",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Próxima Estación... Esperanza",
+						"Artist": "Manu Chao",
+						"Year": "2001",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Back in the USA",
+						"Artist": "MC5",
+						"Year": "1970",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Bat Out of Hell",
+						"Artist": "Meat Loaf",
+						"Year": "1977",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Branded Man",
+						"Artist": "Merle Haggard",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Rejuvenation",
+						"Artist": "Meters",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Oracular Spectacular",
+						"Artist": "MGMT",
+						"Year": "2007",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Sketches of Spain",
+						"Artist": "Miles Davis and Gil Evans",
+						"Year": "1960",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Play",
+						"Artist": "Moby",
+						"Year": "1999",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Moby Grape",
+						"Artist": "Moby Grape",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "All the Young Dudes",
+						"Artist": "Mott the Hoople",
+						"Year": "1972",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Mott",
+						"Artist": "Mott the Hoople",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Muddy Waters at Newport 1960",
+						"Artist": "Muddy Waters",
+						"Year": "1960",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Folk Singer",
+						"Artist": "Muddy Waters",
+						"Year": "1964",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Z",
+						"Artist": "My Morning Jacket",
+						"Year": "2005",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Neil Diamond Collection [the 1999 release, not the 1976 release of the same name]",
+						"Artist": "Neil Diamond",
+						"Year": "1999",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Substance",
+						"Artist": "New Order",
+						"Year": "1987",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Five Leaves Left",
+						"Artist": "Nick Drake",
+						"Year": "1969",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Bryter Layter",
+						"Artist": "Nick Drake",
+						"Year": "1970",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Tragic Kingdom",
+						"Artist": "No Doubt",
+						"Year": "1995",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Rock Steady",
+						"Artist": "No Doubt",
+						"Year": "2001",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Back Stabbers",
+						"Artist": "O'Jays",
+						"Year": "1972",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Otis Redding Live in Europe",
+						"Artist": "Otis Redding",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Dock of the Bay",
+						"Artist": "Otis Redding",
+						"Year": "1968",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Paul Butterfield Blues Band",
+						"Artist": "Paul Butterfield Blues Band",
+						"Year": "1965",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Band on the Run",
+						"Artist": "Paul McCartney and Wings",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Vitalogy",
+						"Artist": "Pearl Jam",
+						"Year": "1994",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Sleepless",
+						"Artist": "Peter Wolf",
+						"Year": "2002",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "To Bring You My Love",
+						"Artist": "PJ Harvey",
+						"Year": "1995",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Rum, Sodomy and the Lash",
+						"Artist": "Pogues",
+						"Year": "1985",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Outlandos D'Amour",
+						"Artist": "Police",
+						"Year": "1978",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Reggatta de Blanc",
+						"Artist": "Police",
+						"Year": "1979",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Ghost in the Machine",
+						"Artist": "Police",
+						"Year": "1981",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "New Orleans Piano",
+						"Artist": "Professor Longhair",
+						"Year": "1972",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Yo! Bum Rush the Show",
+						"Artist": "Public Enemy",
+						"Year": "1987",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Metal Box [aka Second Edition]",
+						"Artist": "Public Image Ltd",
+						"Year": "1979",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Happy Trails",
+						"Artist": "Quicksilver Messenger Service",
+						"Year": "1969",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Document",
+						"Artist": "R.E.M.",
+						"Year": "1987",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Amnesiac",
+						"Artist": "Radiohead",
+						"Year": "2001",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Battle of Los Angeles",
+						"Artist": "Rage Against the Machine",
+						"Year": "1999",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "12 Songs",
+						"Artist": "Randy Newman",
+						"Year": "1970",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Good Old Boys",
+						"Artist": "Randy Newman",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Genius of Ray Charles",
+						"Artist": "Ray Charles",
+						"Year": "1959",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Tim",
+						"Artist": "Replacements",
+						"Year": "1985",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Shoot Out the Lights",
+						"Artist": "Richard & Linda Thompson",
+						"Year": "1982",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Rolling Stones, Now!",
+						"Artist": "Rolling Stones",
+						"Year": "1965",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Out of Our Heads",
+						"Artist": "Rolling Stones",
+						"Year": "1965",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Between the Buttons",
+						"Artist": "Rolling Stones",
+						"Year": "1967",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Tattoo You",
+						"Artist": "Rolling Stones",
+						"Year": "1981",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Country Life",
+						"Artist": "Roxy Music",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Siren",
+						"Artist": "Roxy Music",
+						"Year": "1975",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Santana",
+						"Artist": "Santana",
+						"Year": "1969",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Parsley, Sage, Rosemary, & Thyme",
+						"Artist": "Simon and Garfunkel",
+						"Year": "1966",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Bookends",
+						"Artist": "Simon and Garfunkel",
+						"Year": "1968",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Fresh",
+						"Artist": "Sly & the Family Stone",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Mellon Collie and the Infinite Sadness",
+						"Artist": "Smashing Pumpkins",
+						"Year": "1995",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Smiths",
+						"Artist": "Smiths",
+						"Year": "1984",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Meat is Murder",
+						"Artist": "Smiths",
+						"Year": "1985",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Louder Than Bombs",
+						"Artist": "Smiths",
+						"Year": "1987",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Superunknown",
+						"Artist": "Soundgarden",
+						"Year": "1994",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Getz/Gilberto",
+						"Artist": "Stan Getz and Joao Gilberto",
+						"Year": "1963",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Pretzel Logic",
+						"Artist": "Steely Dan",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Guitar Town",
+						"Artist": "Steve Earle",
+						"Year": "1986",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Fly Like an Eagle",
+						"Artist": "Steve Miller Band",
+						"Year": "1976",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Talking Heads: 77",
+						"Artist": "Talking Heads",
+						"Year": "1978",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Stop Making Sense",
+						"Artist": "Talking Heads",
+						"Year": "1984",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Heart of Saturday Night",
+						"Artist": "Tom Waits",
+						"Year": "1974",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Mule Variations",
+						"Artist": "Tom Waits",
+						"Year": "1999",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Boy",
+						"Artist": "U2",
+						"Year": "1980",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "War",
+						"Artist": "U2",
+						"Year": "1983",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "All That You Can't Leave Behind",
+						"Artist": "U2",
+						"Year": "2000",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Vampire Weekend",
+						"Artist": "Vampire Weekend",
+						"Year": "2008",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Anthology of American Folk Music",
+						"Artist": "Various Artists",
+						"Year": "1952",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The Sun Records Collection",
+						"Artist": "Various Artists",
+						"Year": "1994",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "The World Is a Ghetto",
+						"Artist": "War",
+						"Year": "1972",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "White Blood Cells",
+						"Artist": "White Stripes",
+						"Year": "2001",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "My Generation",
+						"Artist": "Who",
+						"Year": "1965",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "A Quick One",
+						"Artist": "Who",
+						"Year": "1966",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Quadrophenia",
+						"Artist": "Who",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Stardust",
+						"Artist": "Willie Nelson",
+						"Year": "1978",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Wild Gift",
+						"Artist": "X",
+						"Year": "1981",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Having a Rave Up with the Yardbirds",
+						"Artist": "Yardbirds",
+						"Year": "1965",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Roger the Engineer [aka Yardbirds or Over Under Sideways Down]",
+						"Artist": "Yardbirds",
+						"Year": "1966",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Tres Hombres",
+						"Artist": "ZZ Top",
+						"Year": "1973",
+						"Source": "Former Rolling Stone 500"
+					},
+					{
+						"Album": "Eliminator",
+						"Artist": "ZZ Top",
+						"Year": "1983",
+						"Source": "Former Rolling Stone 500"
+					}
+				];
+				var randomAlbum = albums[Math.floor(Math.random() * albums.length)];
+				document.getElementById("album").innerHTML = randomAlbum['Album'];
+				document.getElementById("year").innerHTML = `(${randomAlbum['Year']})`;
+				document.getElementById("artist").innerHTML = randomAlbum['Artist'];
+				document.getElementById("source").innerHTML = randomAlbum['Source'];
+			}
+		</script>
+	</head>
+	<body class="bg-white dark:bg-slate-900 text-black dark:text-white">
+		<div class="mainContainer">
+			<h1 class="text-4xl font-bold underline">Random Album</h1>
+			<button onclick="generateRandom()"
+				class="albumButton bg-slate-900 dark:bg-white text-white dark:text-slate-900">Generate Random Album</button>
+			<div class="albumContainer">
+				<div class="albumInfo text-xl">
+					<p id="album" class="albumName"></p>
+					<p id="year"></p>
+				</div>
+				<p id="artist" class="text-xl"></p>
+				<p id="source" class="text-sm"></p>
+			</div>
+		</div>
+	</body>
+</html>
